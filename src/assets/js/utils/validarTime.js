@@ -32,6 +32,8 @@ const ValidPuntualidad = (updated) => {
         if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
             if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
                 state.selectedUser.estado = "Tarde";
+                state.selectedUser.motivo = "";
+                
                 state.pagina = 4;
                 VerificarUbi(updated);
             } else {
@@ -42,6 +44,8 @@ const ValidPuntualidad = (updated) => {
             }
         } else {
             state.selectedUser.estado = "Tarde";
+            state.selectedUser.motivo = "";
+            
             state.pagina = 4;
             VerificarUbi(updated);
         }
@@ -75,21 +79,17 @@ function initMap(update) {
 
             if (distancia >= RadioWork) {
                 console.log("Aun no estas en laboratoria");
-                $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
+                $('#msjError').text("Aún no estas en tu sede , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
                     updated();
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
-                if (state.selectedUser.estado != "Tarde") {
                     state.selectedUser.Hora = checkP;
                     state.selectedUser.Dia = fechaP;
-                    Postregister();
-                }
-                state.selectedUser.Hora = checkP;
-                state.selectedUser.Dia = fechaP;
-                updated();
+                    Postregister();          
+                    updated();
             }
 
         });

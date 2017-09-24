@@ -35,7 +35,7 @@ const Camara = (updateD) => {
     ok.on('click', function (e) {
         e.preventDefault();
         const validacion = validarFoto();
-        console.log(validacion + "  validiiiii");
+        
         if (validacion == true) {
             state.pagina = 3;
             updated();
@@ -44,6 +44,7 @@ const Camara = (updateD) => {
             state.userName = "";
             state.userPass = "";
             state.selectedSede = "";
+
             state.pagina = 1;
             setTimeout(updated, 3000);
         }

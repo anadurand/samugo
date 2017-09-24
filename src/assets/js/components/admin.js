@@ -2,29 +2,29 @@ const Admin = (update) =>{
   let Tausentes = 0, Tpuntuales = 0 ,Ttarde = 0;
   const container = $('<section class="container"></section>');
 
-  const titulo  =$('<div class="titulo"><h3>Central de emergencias</h3></div>')
-  container.append(titulo);
-  //Mapa
-  const mapContainer =$('<div class="map-container"></div>');
-  const mapa = $('<div id="map"></div>');
+    //Mapa
+    const mapContainer =$('<div class="map-container"></div>');
+    const mapa = $('<div id="map"></div>');
 
-  const reportSamu = $('<div class="samu-container"></div>');
-  const container_OK =$('<section class="container center-align"></section>');
-  const cont_asisOK =$('<div class="row"></div>') ;
-  const cont_title =$(`<div class="title_asis left-align"><p> Revisa la Asistencia de Hoy : ${harold(state.dia.getDate()) + "/" + harold((state.dia.getMonth() +1)) + "/" + harold(state.dia.getFullYear())}</p> </div>`) ;
-  const divTotales =$('<div class="flex_center m12"><h4>Registro Total</h4></div>');
-  const totalPuntual=$('<div class="sizedetail"><p class="Puntual">Puntual</p><p></p></div>');
-  const TPuntual=$('<p></p>');
-  const totalTarde=$('<div class="sizedetail"><p class="Tarde">Tarde</p><p></p></div>');
-  const TTarde=$('<p></p>');
-  const totalAusente=$('<div class="sizedetail"><p class="Ausente">Ausente</p><p></p></div>');
-  const TAusente=$('<p></p>');
-  divTotales.append(totalPuntual,totalTarde,totalAusente);
-  totalPuntual.append(TPuntual);
-  totalTarde.append(TTarde);
-  totalAusente.append(TAusente);
-  const detalle_samus = $(`<div id="samus"></div>`)
-  container_OK.append(cont_asisOK,cont_title,divTotales,detalle_samus);
+
+    mapContainer.append(mapa);
+    container.append(mapContainer);
+
+
+
+
+
+    return container;
+  };
+
+  function initMapa() {
+
+    const map = new GMaps({
+      div: '#map',
+      lat: -12.043333,
+      lng: -77.028333,
+      setZoom: 12
+    });
 
   const samuToday = [], sedes = [];
 

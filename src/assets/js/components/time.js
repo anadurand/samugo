@@ -41,10 +41,9 @@ const Time = (updated) => {
         console.log(Fechas);
         if (Fechas != undefined && Horas != undefined) {
             clearInterval(interval);
-            state.user.Estado = "Ausente";
-            // state.user.Dia = Fechas;
-            state.userHora = Horas;
-            state.page = 5;
+            state.selectedUser.Hora = Horas;
+            state.selectedUser.Dia = Fechas;
+            state.pagina = 5;
             updated();
         }
     });

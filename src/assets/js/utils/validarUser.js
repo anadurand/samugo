@@ -9,7 +9,6 @@ const validarUser = () => {
              state.pagina = 2;
              state.selectedUser = usuario;
 
-             console.log(state.userName);
              if(state.userName == "Administrador"){
                  state.pagina = 7;
              }

@@ -126,6 +126,7 @@ const Admin = (update) =>{
       }
     });
 
+<<<<<<< HEAD
     let ausentes = 0, puntuales = 0, tarde = 0;
 
     $.each(sedes,(i,e)=>{
@@ -149,6 +150,10 @@ const Admin = (update) =>{
             Ttarde++;
             break;
           }
+=======
+    mapContainer.append(mapa);
+    container.append(mapContainer);
+>>>>>>> da1ebace67df90d08a1a849504b9ac46f1510434
 
           detalle(samu, divBody);
         }
@@ -253,17 +258,46 @@ const AsistenciaOk = (updated) => {
     setTimeout(function () {
         state.pagina = 1;
         updated();
-    }, 3000);
+    }, 5000);
 
     return parent;
 }
 'user strict';
 
+<<<<<<< HEAD
 const TardanzaAusente = (update) => {
 
     const container = $('<div class="container"></div>');
 
     return container;
+=======
+const Ausente = (updated) => {
+
+    const body_modal = $('<div class="container"></div>');
+    const cont_modal = $('<div class="row"></div>');
+    const cont_div = $('<div class="col s12 center-align"></div>');
+    const title_name = $('<h4>' + state.userName + '</h4>');
+    const msj = $('<p>Por favor cuéntanos  por qué no vas a asistir.</p>');
+    const message = $('<textarea id="message" class="materialize-textarea"></textarea>');
+    const button = $('<a class="btn col s12 montserrat">Enviar</a>');
+
+    cont_div.append(title_name, msj, message, button);
+    cont_modal.append(cont_div);
+
+    body_modal.append(cont_modal);
+
+    button.on('click', (e) => {
+        e.preventDefault();
+        console.log("mensaje enviado");
+        state.selectedUser.motivo = message.val();
+        state.selectedUser.estado = "Ausente";
+        state.pagina = 4;
+        Postregister();
+        updated();
+    });
+
+    return body_modal;
+>>>>>>> da1ebace67df90d08a1a849504b9ac46f1510434
 };
 'use strict';
 
@@ -311,6 +345,7 @@ const Camara = (updateD) => {
             state.userName = "";
             state.userPass = "";
             state.selectedSede = "";
+            
             state.pagina = 1;
             setTimeout(updated, 3000);
         }
@@ -455,10 +490,9 @@ const Time = (updated) => {
         console.log(Fechas);
         if (Fechas != undefined && Horas != undefined) {
             clearInterval(interval);
-            state.user.Estado = "Ausente";
-            // state.user.Dia = Fechas;
-            state.userHora = Horas;
-            state.page = 5;
+            state.selectedUser.Hora = Horas;
+            state.selectedUser.Dia = Fechas;
+            state.pagina = 5;
             updated();
         }
     });
@@ -481,6 +515,15 @@ function clock () {
     $('.clock').text(harold(hours) + ":" + harold(minutes) + ":" + harold(seconds));
 }
 
+'user strict';
+
+const Getregister = () => {
+
+    $.get("https://sheetsu.com/apis/v1.0/5a03e72dda6e", (data) => {
+        console.log(data);
+        state.asistencia = data;
+    });
+};
 'use strict';
 
 function initCamera () {
@@ -518,6 +561,13 @@ function initCamera () {
     });
 }
 'use strict';
+const Postregister = () => {
+
+    $.post("https://sheetsu.com/apis/v1.0/5a03e72dda6e", { "Nombre": state.selectedUser.nombre, "Apellido": state.selectedUser.apellidos, "User": state.selectedUser.user, "Password": state.selectedUser.password, "Sede": state.selectedUser.sede,"Foto": state.selectedUser.foto, "Turno": state.selectedUser.turno, "Dia": state.selectedUser.Dia, "Hora": state.selectedUser.Hora, "Cargo": state.selectedUser.cargo, "Asistencia": state.selectedUser.estado, "Observacion": state.selectedUser.motivo }, function (result) {
+        console.log("Enviando Data");
+    });
+};
+'use strict';
 
 const VerificarUbi = (updated) => {
     initMap(updated);
@@ -551,6 +601,8 @@ const ValidPuntualidad = (updated) => {
         if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
             if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
                 state.selectedUser.estado = "Tarde";
+                state.selectedUser.motivo = "";
+                
                 state.pagina = 4;
                 VerificarUbi(updated);
             } else {
@@ -561,6 +613,8 @@ const ValidPuntualidad = (updated) => {
             }
         } else {
             state.selectedUser.estado = "Tarde";
+            state.selectedUser.motivo = "";
+            
             state.pagina = 4;
             VerificarUbi(updated);
         }
@@ -594,21 +648,17 @@ function initMap(update) {
 
             if (distancia >= RadioWork) {
                 console.log("Aun no estas en laboratoria");
-                $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
+                $('#msjError').text("Aún no estas en tu sede , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
                     updated();
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
-                if (state.selectedUser.estado != "Tarde") {
                     state.selectedUser.Hora = checkP;
                     state.selectedUser.Dia = fechaP;
-                    Postregister();
-                }
-                state.selectedUser.Hora = checkP;
-                state.selectedUser.Dia = fechaP;
-                updated();
+                    Postregister();          
+                    updated();
             }
 
         });
@@ -652,7 +702,10 @@ const validarUser = () => {
              state.pagina = 2;
              state.selectedUser = usuario;
 
+<<<<<<< HEAD
              console.log(state.userName);
+=======
+>>>>>>> da1ebace67df90d08a1a849504b9ac46f1510434
              if(state.userName == "Administrador"){
                  state.pagina = 7;
              }
