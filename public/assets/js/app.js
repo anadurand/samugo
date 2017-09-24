@@ -34,6 +34,9 @@ const render = (root) => {
 
     root.append(wrapper);
 
+    if(state.pagina == 1){
+        $('select').material_select();
+    }
     if(state.pagina == 2){
         initCamera();
     }
@@ -66,7 +69,7 @@ $(_ => {
 
     state.total = snap.val();
     console.log(state.total);
-
+    
     const root = $(".root");
     render(root);
   });
@@ -79,7 +82,7 @@ const Camara = (updated) => {
     const photoContainer = $('<section class="photo-container"></section>');
 
     const photoCont = $('<div class="photo-container__cont"></div>');
-    const divMsj = $('<div class="cont_text"><h4>Hola: '+ state.userName +'Tómate una foto para identificarte</h4></div>')
+    const divMsj = $('<div class="cont_text center-align"><h5>Hola: '+ state.userName +'Tómate una foto para identificarte</h5></div>')
 
     const videoHtml = $("<video id='video' width='100%'></video>");
     const imgHtml = $("<img id='img' src=''>");
@@ -168,17 +171,17 @@ const LogIn = (updated) => {
     const labelSede = $('<label>Sede: </label>');
     const divBtn = $('<div class="col s10 offset-s1 center-align ingreso"></div>');
     const btn = $('<a class="waves-effect waves-light btn-large">Ingresar</a>');
+    // const error = $();
 
-    // state.locales.forEach((local) => {
-    //     const option = $('<option value="'+local.name+'">'+local.name+'</option>');
-    //     select.append(option);
+    state.total.locales.forEach((local) => {
+        const option = $('<option value="'+local.name+'">'+local.name+'</option>');
+        select.append(option);
 
-    //     option.on("click", (e)=> {
-    //         e.preventDefault();
-    //         state.selectedSede = local;
-    //     });
-
-    // });
+        option.on("click", (e)=> {
+            e.preventDefault();
+            state.selectedSede = local;
+        });
+    });
     
     divSede.append(select);
     divSede.append(labelSede);
@@ -193,19 +196,26 @@ const LogIn = (updated) => {
     
     parent.append(form);
     parent.append(divBtn);
-
+    
     btn.on("click", (e) => {
         e.preventDefault();
-        state.pagina = 2;
         state.userName = inputUser.val();
         state.userPass = inputPass.val();
-        updated();
+        
+        if (validarUser()){
+            state.pagina = 2;
+            updated();
+
+        }else {
+
+        }
     });
-
-
-
+    
+    
+    
     return parent
 }
+
 'use strict';
 
 var Horas, Fechas;
