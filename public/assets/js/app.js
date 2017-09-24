@@ -201,7 +201,6 @@ const LogIn = (updated) => {
         state.userSede = select.val();
         console.log(state);
         if (validarUser()){
-            state.pagina = 2;
             updated();
 
         }else {
@@ -446,6 +445,10 @@ const validarUser = () => {
     state.total.personal.forEach((usuario) => {
         if(state.userName == usuario.user && state.userPass == usuario.password && state.userSede == usuario.sede){
              result = true;
+             state.pagina = 2;
+             if(state.userName == "ADM-001"){
+                 state.pagina = 7;
+             }
         }
     });
     return result;

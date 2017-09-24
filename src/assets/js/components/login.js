@@ -45,7 +45,6 @@ const LogIn = (updated) => {
         state.userSede = select.val();
         console.log(state);
         if (validarUser()){
-            state.pagina = 2;
             updated();
 
         }else {
