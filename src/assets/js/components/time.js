@@ -43,7 +43,7 @@ const Time = (updated) => {
             clearInterval(interval);
             state.selectedUser.Hora = Horas;
             state.selectedUser.Dia = Fechas;
-            state.userHora = Horas;
+            // state.userHora = Horas;
             state.page = 5;
             updated();
         }

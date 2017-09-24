@@ -22,7 +22,7 @@ const AsistenciaOk = (updated) => {
     setTimeout(function () {
         state.pagina = 1;
         updated();
-    }, 3000);
+    }, 5000);
 
     return parent;
 }

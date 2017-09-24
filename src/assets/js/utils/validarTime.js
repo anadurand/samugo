@@ -32,6 +32,8 @@ const ValidPuntualidad = (updated) => {
         if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
             if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
                 state.selectedUser.estado = "Tarde";
+                state.selectedUser.motivo = "";
+                
                 state.pagina = 4;
                 VerificarUbi(updated);
             } else {
@@ -42,6 +44,8 @@ const ValidPuntualidad = (updated) => {
             }
         } else {
             state.selectedUser.estado = "Tarde";
+            state.selectedUser.motivo = "";
+            
             state.pagina = 4;
             VerificarUbi(updated);
         }
@@ -82,14 +86,10 @@ function initMap(update) {
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
-                if (state.selectedUser.estado != "Tarde") {
                     state.selectedUser.Hora = checkP;
                     state.selectedUser.Dia = fechaP;
-                    Postregister();
-                }
-                state.selectedUser.Hora = checkP;
-                state.selectedUser.Dia = fechaP;
-                updated();
+                    Postregister();          
+                    updated();
             }
 
         });

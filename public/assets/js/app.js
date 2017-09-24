@@ -153,7 +153,7 @@ const AsistenciaOk = (updated) => {
     setTimeout(function () {
         state.pagina = 1;
         updated();
-    }, 3000);
+    }, 5000);
 
     return parent;
 }
@@ -378,7 +378,7 @@ const Time = (updated) => {
             clearInterval(interval);
             state.selectedUser.Hora = Horas;
             state.selectedUser.Dia = Fechas;
-            state.userHora = Horas;
+            // state.userHora = Horas;
             state.page = 5;
             updated();
         }
@@ -439,9 +439,9 @@ function initCamera () {
     });
 }
 'use strict';
-const Postregister = (updated) => {
+const Postregister = () => {
 
-    $.post("https://sheetsu.com/apis/v1.0/50c5e101da79", { "Coder": state.userName, "Email": state.user.Email, "Codigo": state.user.Codigo, "Squad": state.user.Squad, "Tipo": state.user.Tipo, "Dia": state.user.Dia, "Hora": state.user.Hora, "Estado": state.user.Estado, "Motivo": state.user.Motivo, "Sede": state.user.Sede }, function (result) {
+    $.post("https://sheetsu.com/apis/v1.0/5a03e72dda6e", { "Nombre": state.selectedUser.nombre, "Apellido": state.selectedUser.apellidos, "User": state.selectedUser.user, "Password": state.selectedUser.password, "Sede": state.selectedUser.sede,"Foto": state.selectedUser.foto, "Turno": state.selectedUser.turno, "Dia": state.selectedUser.Dia, "Hora": state.selectedUser.Hora, "Cargo": state.selectedUser.cargo, "Asistencia": state.selectedUser.estado, "Observacion": state.selectedUser.motivo }, function (result) {
         console.log("Enviando Data");
     });
 };
@@ -479,6 +479,8 @@ const ValidPuntualidad = (updated) => {
         if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
             if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
                 state.selectedUser.estado = "Tarde";
+                state.selectedUser.motivo = "";
+                
                 state.pagina = 4;
                 VerificarUbi(updated);
             } else {
@@ -489,6 +491,8 @@ const ValidPuntualidad = (updated) => {
             }
         } else {
             state.selectedUser.estado = "Tarde";
+            state.selectedUser.motivo = "";
+            
             state.pagina = 4;
             VerificarUbi(updated);
         }
@@ -529,14 +533,10 @@ function initMap(update) {
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
-                if (state.selectedUser.estado != "Tarde") {
                     state.selectedUser.Hora = checkP;
                     state.selectedUser.Dia = fechaP;
-                    Postregister();
-                }
-                state.selectedUser.Hora = checkP;
-                state.selectedUser.Dia = fechaP;
-                updated();
+                    Postregister();          
+                    updated();
             }
 
         });
