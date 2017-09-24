@@ -40,18 +40,20 @@ const render = (root) => {
     if(state.pagina == 2){
         initCamera();
     }
+    if(state.pagina == 7) {
+        initMapa();
+    }
 }
 
 const updated = function () {
     render(root);
 }
 const state = {
-    pagina: null,
+    pagina: null
 }
 
 
 $(_ => {
-
   var config = {
     apiKey: "AIzaSyBdR77WTmQPJ4ByaPCsNRxJiKSxpPxYmfU",
     authDomain: "samugo-ffbbd.firebaseapp.com",
@@ -72,9 +74,61 @@ $(_ => {
     
     const root = $(".root");
     render(root);
+
   });
 });
 
+const Admin = (update) =>{
+  const container = $('<section class="container"></section>');
+
+    //Mapa
+    const mapContainer =$('<div class="map-container"></div>');
+    const mapa = $('<div id="map"></div>');
+
+
+    // mapContainer.append(samuMap());
+    mapContainer.append(mapa);
+    container.append(mapContainer);
+
+    
+       
+    
+    
+    return container;
+  };
+  
+  function initMapa() {
+
+    const map = new GMaps({
+      div: '#map',
+      lat: -12.043333,
+      lng: -77.028333,
+      setZoom: 12
+    });
+
+    GMaps.geolocate({
+      success: (position) => {
+        map.setCenter(position.coords.latitude, position.coords.longitude);
+        map.setZoom(14);
+
+        map.addMarker({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          title: "Posición actual",
+        });
+
+
+      },
+      error: function (error) {
+        alert('Geolocalización fallada: ' + error.message);
+      },
+      not_supported: function () {
+        alert("Tu navegador no soporta la API geolocation");
+      }
+    });
+
+
+  };
 'use strict';
 
 const Camara = (updated) => {
@@ -186,11 +240,12 @@ const LogIn = (updated) => {
     divUser.append(labelUser);
     divPass.append(inputPass);
     divPass.append(labelPass);
+
     form.append(divUser);
     form.append(divPass);
     form.append(divSede);
     divBtn.append(btn);
-    
+
     parent.append(form);
     parent.append(divBtn);
     
@@ -451,5 +506,6 @@ const validarUser = () => {
              }
         }
     });
+    
     return result;
 }

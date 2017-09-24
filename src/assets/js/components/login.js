@@ -30,11 +30,12 @@ const LogIn = (updated) => {
     divUser.append(labelUser);
     divPass.append(inputPass);
     divPass.append(labelPass);
+
     form.append(divUser);
     form.append(divPass);
     form.append(divSede);
     divBtn.append(btn);
-    
+
     parent.append(form);
     parent.append(divBtn);
     
