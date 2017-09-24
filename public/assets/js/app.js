@@ -232,7 +232,6 @@ const LogIn = (updated) => {
     state.total.locales.forEach((local) => {
         const option = $('<option value="'+local.name+'">'+local.name+'</option>');
         select.append(option);
-
         
     });
     
@@ -256,8 +255,8 @@ const LogIn = (updated) => {
         state.userName = inputUser.val();
         state.userPass = inputPass.val();
         state.userSede = select.val();
-        console.log(state);
         if (validarUser()){
+            state.selectedSede = LocalSede(state.userSede);
             updated();
 
         }else {
@@ -269,7 +268,15 @@ const LogIn = (updated) => {
     
     return parent
 }
-
+function LocalSede (local) {
+    var c = "";
+    state.total.locales.forEach((sede) => {
+        if(sede.name == local){
+            c = sede;
+        }
+    });
+    return c;
+}
 'use strict';
 
 var Horas, Fechas;
@@ -432,18 +439,9 @@ function initMap(update) {
             };
 
             console.log(pos);
-            var posX = Math.sqrt(Math.pow(pos.lat, 2) + Math.pow(pos.lng, 2));
-            var posLab = {
-                lat: -12.126025,
-                lng: -77.020663
-            }
-            //  var posLab={
-            //   lat: -12.0507126,
-            //   lng: -77.045422
-            // }
-
-
-            var labX = Math.sqrt(Math.pow(posLab.lat, 2) + Math.pow(posLab.lng, 2));
+            var posX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
+           
+            var labX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
             var distancia = (Math.abs(labX - posX)) * 1000;
             var RadioWork = 0.002429195 * 1000;
 
@@ -451,7 +449,7 @@ function initMap(update) {
                 console.log("Aun no estas en laboratoria");
                 $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
-                    state.page = 1;
+                    state.pagina = 1;
                     update();
                 }, 3000);
             } else {
@@ -471,7 +469,7 @@ function initMap(update) {
     } else {
         $('#msjError').text("Tu navegador no soporta la geolocalización");
         setTimeout(function () {
-            state.page = null;
+            state.pagina = 1;
             update();
         }, 3000);
     }
