@@ -75,7 +75,7 @@ function initMap(update) {
 
             if (distancia >= RadioWork) {
                 console.log("Aun no estas en laboratoria");
-                $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
+                $('#msjError').text("Aún no estas en tu sede , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
                     updated();

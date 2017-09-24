@@ -6,7 +6,6 @@ const Admin = (update) =>{
     const mapa = $('<div id="map"></div>');
 
 
-    // mapContainer.append(samuMap());
     mapContainer.append(mapa);
     container.append(mapContainer);
 

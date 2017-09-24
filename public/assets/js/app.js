@@ -87,7 +87,6 @@ const Admin = (update) =>{
     const mapa = $('<div id="map"></div>');
 
 
-    // mapContainer.append(samuMap());
     mapContainer.append(mapa);
     container.append(mapContainer);
 
@@ -158,6 +157,35 @@ const AsistenciaOk = (updated) => {
 
     return parent;
 }
+'user strict';
+
+const Ausente = (updated) => {
+
+    const body_modal = $('<div class="container"></div>');
+    const cont_modal = $('<div class="row"></div>');
+    const cont_div = $('<div class="col s12 center-align"></div>');
+    const title_name = $('<h4>' + state.userName + '</h4>');
+    const msj = $('<p>Por favor cuéntanos  por qué no vas a asistir.</p>');
+    const message = $('<textarea id="message" class="materialize-textarea"></textarea>');
+    const button = $('<a class="btn col s12 montserrat">Enviar</a>');
+
+    cont_div.append(title_name, msj, message, button);
+    cont_modal.append(cont_div);
+
+    body_modal.append(cont_modal);
+
+    button.on('click', (e) => {
+        e.preventDefault();
+        console.log("mensaje enviado");
+        state.selectedUser.motivo = message.val();
+        state.selectedUser.estado = "Ausente";
+        state.page = 4;
+        Postregister();
+        updated();
+    });
+
+    return body_modal;
+};
 'use strict';
 
 const Camara = (updateD) => {
@@ -348,8 +376,8 @@ const Time = (updated) => {
         console.log(Fechas);
         if (Fechas != undefined && Horas != undefined) {
             clearInterval(interval);
-            state.user.Estado = "Ausente";
-            // state.user.Dia = Fechas;
+            state.selectedUser.Hora = Horas;
+            state.selectedUser.Dia = Fechas;
             state.userHora = Horas;
             state.page = 5;
             updated();
@@ -410,6 +438,13 @@ function initCamera () {
         video.style.display = 'none';
     });
 }
+'use strict';
+const Postregister = (updated) => {
+
+    $.post("https://sheetsu.com/apis/v1.0/50c5e101da79", { "Coder": state.userName, "Email": state.user.Email, "Codigo": state.user.Codigo, "Squad": state.user.Squad, "Tipo": state.user.Tipo, "Dia": state.user.Dia, "Hora": state.user.Hora, "Estado": state.user.Estado, "Motivo": state.user.Motivo, "Sede": state.user.Sede }, function (result) {
+        console.log("Enviando Data");
+    });
+};
 'use strict';
 
 const VerificarUbi = (updated) => {
@@ -487,7 +522,7 @@ function initMap(update) {
 
             if (distancia >= RadioWork) {
                 console.log("Aun no estas en laboratoria");
-                $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
+                $('#msjError').text("Aún no estas en tu sede , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
                     updated();
