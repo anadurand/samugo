@@ -84,6 +84,8 @@ const Admin = (update) =>{
   let Tausentes = 0, Tpuntuales = 0 ,Ttarde = 0;
   const container = $('<section class="container"></section>');
 
+  const titulo  =$('<div class="titulo"><h3>Central de emergencias</h3></div>')
+  container.append(titulo);
   //Mapa
   const mapContainer =$('<div class="map-container"></div>');
   const mapa = $('<div id="map"></div>');
@@ -183,10 +185,11 @@ const Admin = (update) =>{
 };
 
 const detalle = (samu, container)=> {
+  console.log(samu);
   const divImg =$('<div class="detail_samu"></div>');
-  const imgSamu =$(`<img src="assets/img/${samu.Tipo}.svg"  class="img-responsive" alt="foto">`)
-  const spanSamu = $(`<p>${samu.Samu}</p>`);
-  const spanEstado = $(`<span class="${samu.Estado}">${samu.Estado}</span>`);
+  const imgSamu =$(`<img src="assets/img/${samu.Foto}.svg"  class="img-responsive" alt="foto">`)
+  const spanSamu = $(`<p>${samu.Nombre}</p>`);
+  const spanEstado = $(`<span class="${samu.Asistencia}">${samu.Asistencia}</span>`);
   container.append(divImg);
   divImg.append(imgSamu,spanSamu,spanEstado);
 }
