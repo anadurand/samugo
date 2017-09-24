@@ -32,7 +32,7 @@
               "user" :"FVD-B02",
               "password":"1234",
               "sede":"Base N° 02",
-              "foto":"FVD-B01.jpg",
+              "foto":"FVD-B02.jpg",
               "turno":"diurno",
               "cargo":"Piloto"
             },{
@@ -123,10 +123,10 @@
             "name": "Base N° 01",
             "direccion": "Bolognesi 200, Bellavista 07016"
     },{
-            "latitud": -12.0640206,
-            "longitud": -77.1221732,
+            "latitud": -12.0716872,
+            "longitud": -77.0785483,
             "name": "Base N° 02",
-            "direccion": "Jirón Colina 1081, Bellavista 07011"
+            "direccion": "PUCP, Av. Universitaria 1801, San Miguel Lima 32, Perú"
     },{
            "latitud": -12.0659612,
            "longitud": -77.0989606,
@@ -276,5 +276,29 @@
             "horario":"nocturno",
             "horaP1": "1800",
             "horaP2":"1900"
-        }]
+        }],
+   "fotos":[{
+   "personId": "6399d59c-26b2-463c-991a-5708a9ec968f",
+   "persistedFaceIds": [
+     "36975a2d-10d5-4c05-830d-a4ac8aaccf9c"
+   ],
+   "name": "Maia",
+   "userData": null
+ },
+ {
+   "personId": "cf01234f-d489-40f8-9fed-a71bfd90b9e3",
+   "persistedFaceIds": [
+     "36f32aff-bd8c-477f-a8e6-393f6679e2e1"
+   ],
+   "name": "Ana",
+   "userData": null
+ },
+ {
+   "personId": "f33efe2e-6ad4-410d-aec7-98ae7da615fe",
+   "persistedFaceIds": [
+     "ec102ccc-a8f3-43d4-85a7-90a2094f4f25"
+   ],
+   "name": "Glise",
+   "userData": null
+ }]
 }
