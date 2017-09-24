@@ -43,6 +43,7 @@ const render = (root) => {
     if(state.pagina == 7) {
         initMapa();
     }
+
 }
 
 const updated = function () {
@@ -71,7 +72,7 @@ $(_ => {
 
     state.total = snap.val();
     console.log(state.total);
-    
+
     const root = $(".root");
     render(root);
 

@@ -112,7 +112,7 @@
               "apellidos":"",
               "user" :"ADM-001",
               "password":"1234",
-              "sede":"Central",
+              "sede":"Central Samu",
               "foto":"ADM-001.jpg",
               "turno":"",
               "cargo":"Administrador"
@@ -210,7 +210,7 @@
     },{
           "latitud":-12.0901758,
           "longitud":-77.0378534,
-          "name": "Central Samnu",
+          "name": "Central Samu",
           "direccion": "Av Javier Prado Oeste 355, Cercado de Lima 15073"
     },{
           "latitud":-12.0859698,

@@ -1,8 +1,9 @@
 'use strict';
 
-const Camara = (updated) => {
+const Camara = (update) => {
 
     const photoContainer = $('<section class="photo-container"></section>');
+
 
     const photoCont = $('<div class="photo-container__cont"></div>');
     const divMsj = $('<div class="cont_text center-align"><h5>Hola: '+ state.userName +'Tómate una foto para identificarte</h5></div>')
@@ -13,7 +14,7 @@ const Camara = (updated) => {
     const buttonHtml = $("<div id='button' class='circle'><i id='camara' class='material-icons'>camera_alt</i></div>");
 
     const photoFooter = $('<div class="photo-container__footer"></div>');
-    const ok = $('<div id="seleccionar"  class="circle"><i  class="material-icons">check</i></div>');
+    const ok = $('<div id="seleccionar"  class="circle"><i  class="material-icons">check</i>Validar</div>');
     const error = $('<div class="error">Imagen no pertenece a usuario. <br> Registrese correctamente </div>');
 
 
@@ -28,12 +29,13 @@ const Camara = (updated) => {
     photoFooter.append(ok);
     photoFooter.append(buttonHtml);
     photoContainer.append(photoFooter);
-   
+
 
 
     ok.on('click', function (e) {
         e.preventDefault();
         const validacion = validarFoto();
+        console.log(validacion + "  validiiiii");
         if (validacion == true) {
             state.pagina = 3;
             update();
@@ -48,8 +50,7 @@ const Camara = (updated) => {
 
     });
 
-    
+
     return photoContainer;
 
 }
-
