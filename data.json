@@ -107,6 +107,15 @@
               "foto":"MPC-B04.jpg",
               "turno":"diurno",
               "cargo":"Enfermero"
+            },{
+              "nombre": "Admistrador",
+              "apellidos":"",
+              "user" :"ADM-001",
+              "password":"1234",
+              "sede":"Central",
+              "foto":"ADM-001.jpg",
+              "turno":"",
+              "cargo":"Administrador"
             }],
   "locales":[{
             "latitud": -11.9745568,
