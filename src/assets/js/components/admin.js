@@ -9,8 +9,8 @@ const Admin = (update) =>{
   const reportSamu = $('<div class="samu-container"></div>');
   const container_OK =$('<section class="container center-align"></section>');
   const cont_asisOK =$('<div class="row"></div>') ;
-  const cont_title =$(`<div class="title_asis left-align"><p>Buen día Alejandra</p><p> Revisa la Asistencia de Hoy : ${harold(state.dia.getDate()) + "/" + harold((state.dia.getMonth() +1)) + "/" + harold(state.dia.getFullYear())}</p> </div>`) ;
-  const divTotales =$('<div class="flex_center"><h4>Registro Total</h4></div>');
+  const cont_title =$(`<div class="title_asis left-align"><p> Revisa la Asistencia de Hoy : ${harold(state.dia.getDate()) + "/" + harold((state.dia.getMonth() +1)) + "/" + harold(state.dia.getFullYear())}</p> </div>`) ;
+  const divTotales =$('<div class="flex_center m12"><h4>Registro Total</h4></div>');
   const totalPuntual=$('<div class="sizedetail"><p class="Puntual">Puntual</p><p></p></div>');
   const TPuntual=$('<p></p>');
   const totalTarde=$('<div class="sizedetail"><p class="Tarde">Tarde</p><p></p></div>');
@@ -29,7 +29,6 @@ const Admin = (update) =>{
   $.get("https://sheetsu.com/apis/v1.0/5a03e72dda6e",(data)=> {
     console.log(data);
     state.asistencia = data;
-    console.log(state.asistencia);
 
     $.each(state.asistencia,(i,e)=>{
       if( e.Dia === harold(state.dia.getDate()) + "/" + harold((state.dia.getMonth() +1)) + "/" + harold(state.dia.getFullYear())){
@@ -83,8 +82,7 @@ const Admin = (update) =>{
       puntuales = 0;
       tarde = 0;
       $(document).ready(function(){
-        console.log("hola");
-        $('.collapsible').collapsible();
+          $('.collapsible').collapsible();
       });
     });
     console.log(Tpuntuales);
