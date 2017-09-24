@@ -1,0 +1,268 @@
+{
+  "personal": [{
+              "nombre": "Maia",
+              "apellidos":"Rojas Tinco",
+              "user" :"MRT-B01",
+              "password":"1234",
+              "sede":"Base N° 01",
+              "foto":"MRT-B01.jpg",
+              "turno":"diurno",
+              "cargo":"Piloto"
+            },{
+              "nombre": "Ana",
+              "apellidos":"Durant Marines",
+              "user" :"ADM-B01",
+              "password":"1234",
+              "sede":"Base N° 01",
+              "foto":"ADM-B01.jpg",
+              "turno":"diurno",
+              "cargo":"Médico"
+            },{
+              "nombre": "Jose",
+              "apellidos":"Rosas Aguilar",
+              "user" :"JRA-B01",
+              "password":"1234",
+              "sede":"Base N° 01",
+              "foto":"JRA-B01.jpg",
+              "turno":"diurno",
+              "cargo":"Enfermero"
+            },{
+              "nombre": "Franco",
+              "apellidos":"Veles Dasas",
+              "user" :"FVD-B02",
+              "password":"1234",
+              "sede":"Base N° 02",
+              "foto":"FVD-B01.jpg",
+              "turno":"diurno",
+              "cargo":"Piloto"
+            },{
+              "nombre": "Alejandro",
+              "apellidos":"Condor Marina",
+              "user" :"ACM-B02",
+              "password":"1234",
+              "sede":"Base N° 02",
+              "foto":"MRT-B02.jpg",
+              "turno":"diurno",
+              "cargo":"Médico"
+            },{
+              "nombre": "Gabriel",
+              "apellidos":"Peres Dibar",
+              "user" :"GPD-B02",
+              "password":"1234",
+              "sede":"Base N° 02",
+              "foto":"GPD-B02.jpg",
+              "turno":"diurno",
+              "cargo":"Enfermero"
+            },{
+              "nombre": "Viviana",
+              "apellidos":"Lujan Dasas",
+              "user" :"VLD-B03",
+              "password":"1234",
+              "sede":"Base N° 03",
+              "foto":"VLD-B03.jpg",
+              "turno":"diurno",
+              "cargo":"Piloto"
+            },{
+              "nombre": "Carlos",
+              "apellidos":"Huarcaya Vivan",
+              "user" :"CHV-B03",
+              "password":"1234",
+              "sede":"Base N° 03",
+              "foto":"CHV-B03.jpg",
+              "turno":"diurno",
+              "cargo":"Médico"
+            },{
+              "nombre": "Camilo",
+              "apellidos":"Flores Tello",
+              "user" :"CFT-B03",
+              "password":"1234",
+              "sede":"Base N° 03",
+              "foto":"CFT-B03.jpg",
+              "turno":"diurno",
+              "cargo":"Enfermero"
+            },{
+              "nombre": "Devniel",
+              "apellidos":"Ardiano Perez",
+              "user" :"DAP-B04",
+              "password":"1234",
+              "sede":"Base N° 04",
+              "foto":"DAP-B04.jpg",
+              "turno":"diurno",
+              "cargo":"Piloto"
+            },{
+              "nombre": "Armando",
+              "apellidos":"Garcia Curi",
+              "user" :"AGC-B04",
+              "password":"1234",
+              "sede":"Base N° 04",
+              "foto":"AGC-B01.jpg",
+              "turno":"diurno",
+              "cargo":"Médico"
+            },{
+              "nombre": "Martin",
+              "apellidos":"Polo Chompa",
+              "user" :"MPC-B04",
+              "password":"1234",
+              "sede":"Base N° 04",
+              "foto":"MPC-B04.jpg",
+              "turno":"diurno",
+              "cargo":"Enfermero"
+            }],
+  "locales":[{
+            "latitud": -11.9745568,
+            "longitud": -76.7626213,
+            "name": "Base N° 01",
+            "codigo":"Samu Chacla",
+            "direccion": ""
+    },{
+            "latitud": -12.0926725,
+            "longitud": -77.0369035,
+            "name": "Base N° 02",
+            "direccion": ""
+    },{
+           "latitud": 1,
+           "longitud": 1,
+           "name": "Base N° 03",
+           "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 04  ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 05 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 06 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud": 1,
+          "name": "Base N° 07 ",
+          "direccion": ""
+    },{
+          "latitud": 1,
+          "longitud":1 ,
+          "name": "Base N° 08 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud": 1,
+          "name": "Base N° 09 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 10 ",
+          "direccion": ""
+    },{
+          "latitud": 1,
+          "longitud": 1,
+          "name": "Base N° 11",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 12",
+          "direccion": ""
+    },{
+           "latitud":1 ,
+           "longitud":1 ,
+           "name": "Base N° 13",
+           "direccion": ""
+    },{
+          "latitud": 1,
+          "longitud":1 ,
+          "name": "Base N° 14  ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 15 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 16 ",
+          "direccion": ""
+    },{
+          "latitud":1,
+          "longitud":1 ,
+          "name": "Base N° 17 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 18 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 19 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 20 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 21",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 22",
+          "direccion": ""
+    },{
+           "latitud":1 ,
+           "longitud":1 ,
+           "name": "Base N° 23",
+           "direccion": ""
+    },{
+          "latitud": 1,
+          "longitud":1 ,
+          "name": "Base N° 24  ",
+          "direccion": ""
+    },{
+          "latitud": 1,
+          "longitud":1 ,
+          "name": "Base N° 25 ",
+          "direccion": ""
+    },{
+          "latitud": 1,
+          "longitud":1 ,
+          "name": "Base N° 26 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud": 1,
+          "name": "Base N° 27 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 28 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud": 1,
+          "name": "Base N° 29 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 32 ",
+          "direccion": ""
+    },{
+          "latitud":1 ,
+          "longitud":1 ,
+          "name": "Base N° 33",
+          "direccion":""
+        }]
+}
