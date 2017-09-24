@@ -43,6 +43,7 @@ const render = (root) => {
     if(state.pagina == 7) {
         initMapa();
     }
+
 }
 
 const updated = function () {
@@ -71,7 +72,7 @@ $(_ => {
 
     state.total = snap.val();
     console.log(state.total);
-    
+
     const root = $(".root");
     render(root);
 
@@ -129,11 +130,40 @@ const Admin = (update) =>{
 
 
   };
+'user strict';
+
+const AsistenciaOk = (updated) => {
+    const parent = $('<div class=""></div>');
+    const msj = $('<div class=""><h5>' + state.userName +' gracias por registrarte</h5></div>');
+    const dia = $('<div>Dìa : '+ state.selectedUser.Dia +'</div>');
+    const hora = $('<div>Hora: ' + state.selectedUser.Hora + '</div>');
+    const estado = $('<div>Asistencia: '+ state.selectedUser.estado + '</div>');
+    
+    
+    msj.append(dia);
+    msj.append(hora);
+    msj.append(estado);
+
+    if(state.selectedUser.motivo != ""){
+        const motivo = $('<div>Motivo: ' + state.selectedUser.motivo + '</div>');
+        msj.append(motivo);
+    }
+
+    parent.append(msj);
+
+    setTimeout(function () {
+        state.pagina = 1;
+        updated();
+    }, 3000);
+
+    return parent;
+}
 'use strict';
 
-const Camara = (updated) => {
+const Camara = (updateD) => {
 
     const photoContainer = $('<section class="photo-container"></section>');
+
 
     const photoCont = $('<div class="photo-container__cont"></div>');
     const divMsj = $('<div class="cont_text center-align"><h5>Hola: '+ state.userName +'Tómate una foto para identificarte</h5></div>')
@@ -144,7 +174,7 @@ const Camara = (updated) => {
     const buttonHtml = $("<div id='button' class='circle'><i id='camara' class='material-icons'>camera_alt</i></div>");
 
     const photoFooter = $('<div class="photo-container__footer"></div>');
-    const ok = $('<div id="seleccionar"  class="circle"><i  class="material-icons">check</i></div>');
+    const ok = $('<div id="seleccionar"  class="circle"><i  class="material-icons">check</i>Validar</div>');
     const error = $('<div class="error">Imagen no pertenece a usuario. <br> Registrese correctamente </div>');
 
 
@@ -159,15 +189,16 @@ const Camara = (updated) => {
     photoFooter.append(ok);
     photoFooter.append(buttonHtml);
     photoContainer.append(photoFooter);
-   
+
 
 
     ok.on('click', function (e) {
         e.preventDefault();
         const validacion = validarFoto();
+        console.log(validacion + "  validiiiii");
         if (validacion == true) {
             state.pagina = 3;
-            update();
+            updated();
         }else {
             photoContainer.append(error);
             state.userName = "";
@@ -179,11 +210,10 @@ const Camara = (updated) => {
 
     });
 
-    
+
     return photoContainer;
 
 }
-
 
 'use strict';
 
@@ -282,7 +312,7 @@ var Horas, Fechas;
 const Time = (updated) => {
 
     const parent = $('<div class=""></div>');
-    const divMsj = $('<div class="msjInicial">Ahora registra tu hora de entrada</div>');
+    const divMsj = $('<div class="msjInicial">'+ state.userName  +', ahora registra tu hora de entrada</div>');
     const cont_reloj = $('<section class="container cont_timer"></section>');
 
     const cont_timer = $('<div class="cont_clock"></div>');
@@ -310,7 +340,7 @@ const Time = (updated) => {
         e.preventDefault();
 
         clearInterval(interval);
-        ValidPuntualidad(update);
+        ValidPuntualidad(updated);
     });
 
     enlace.on('click', (e) => {
@@ -322,7 +352,7 @@ const Time = (updated) => {
             // state.user.Dia = Fechas;
             state.userHora = Horas;
             state.page = 5;
-            update();
+            updated();
         }
     });
 
@@ -343,6 +373,7 @@ function clock () {
     $('.day').text(harold(dia) + "/" + harold(mes) + "/" + year);
     $('.clock').text(harold(hours) + ":" + harold(minutes) + ":" + harold(seconds));
 }
+
 'use strict';
 
 function initCamera () {
@@ -414,17 +445,17 @@ const ValidPuntualidad = (updated) => {
             if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
                 state.selectedUser.estado = "Tarde";
                 state.pagina = 4;
-                VerificarUbi(update);
+                VerificarUbi(updated);
             } else {
                 state.selectedUser.estado = "Puntual";
                 state.selectedUser.motivo = "";
                 state.pagina = 4;
-                VerificarUbi(update);
+                VerificarUbi(updated);
             }
         } else {
             state.selectedUser.estado = "Tarde";
             state.pagina = 4;
-            VerificarUbi(update);
+            VerificarUbi(updated);
         }
 
     
@@ -448,8 +479,8 @@ function initMap(update) {
             };
 
             console.log(pos);
-            var posX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
-           
+            var posX = Math.sqrt(Math.pow(pos.lat, 2) + Math.pow(pos.lng, 2));
+
             var labX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
             var distancia = (Math.abs(labX - posX)) * 1000;
             var RadioWork = 0.002429195 * 1000;
@@ -459,7 +490,7 @@ function initMap(update) {
                 $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
-                    update();
+                    updated();
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
@@ -470,7 +501,7 @@ function initMap(update) {
                 }
                 state.selectedUser.Hora = checkP;
                 state.selectedUser.Dia = fechaP;
-                update();
+                updated();
             }
 
         });
@@ -479,7 +510,7 @@ function initMap(update) {
         $('#msjError').text("Tu navegador no soporta la geolocalización");
         setTimeout(function () {
             state.pagina = 1;
-            update();
+            updated();
         }, 3000);
     }
 }
@@ -502,6 +533,7 @@ const PedirHora = () => {
     var Fechas = harold(dia) + "/" + harold(mes) + "/" + year;
     return Fechas;
 }
+
 'use strict';
 
 const validarUser = () => {
@@ -509,8 +541,10 @@ const validarUser = () => {
     state.total.personal.forEach((usuario) => {
         if(state.userName == usuario.user && state.userPass == usuario.password && state.userSede == usuario.sede){
              result = true;
+             state.userName=  usuario.nombre;
              state.pagina = 2;
              state.selectedUser = usuario;
+
              if(state.userName == "ADM-001"){
                  state.pagina = 7;
              }
@@ -518,4 +552,10 @@ const validarUser = () => {
     });
 
     return result;
+}
+
+'use strict';
+
+const validarFoto = () => {
+  return true;
 }

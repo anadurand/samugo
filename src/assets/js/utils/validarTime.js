@@ -33,17 +33,17 @@ const ValidPuntualidad = (updated) => {
             if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
                 state.selectedUser.estado = "Tarde";
                 state.pagina = 4;
-                VerificarUbi(update);
+                VerificarUbi(updated);
             } else {
                 state.selectedUser.estado = "Puntual";
                 state.selectedUser.motivo = "";
                 state.pagina = 4;
-                VerificarUbi(update);
+                VerificarUbi(updated);
             }
         } else {
             state.selectedUser.estado = "Tarde";
             state.pagina = 4;
-            VerificarUbi(update);
+            VerificarUbi(updated);
         }
 
     
@@ -67,8 +67,8 @@ function initMap(update) {
             };
 
             console.log(pos);
-            var posX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
-           
+            var posX = Math.sqrt(Math.pow(pos.lat, 2) + Math.pow(pos.lng, 2));
+
             var labX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
             var distancia = (Math.abs(labX - posX)) * 1000;
             var RadioWork = 0.002429195 * 1000;
@@ -78,7 +78,7 @@ function initMap(update) {
                 $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
-                    update();
+                    updated();
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
@@ -89,7 +89,7 @@ function initMap(update) {
                 }
                 state.selectedUser.Hora = checkP;
                 state.selectedUser.Dia = fechaP;
-                update();
+                updated();
             }
 
         });
@@ -98,7 +98,7 @@ function initMap(update) {
         $('#msjError').text("Tu navegador no soporta la geolocalización");
         setTimeout(function () {
             state.pagina = 1;
-            update();
+            updated();
         }, 3000);
     }
 }
