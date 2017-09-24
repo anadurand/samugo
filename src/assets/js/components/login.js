@@ -20,9 +20,9 @@ const LogIn = (updated) => {
     state.total.locales.forEach((local) => {
         const option = $('<option value="'+local.name+'">'+local.name+'</option>');
         select.append(option);
-        
+
     });
-    
+
     divSede.append(select);
     divSede.append(labelSede);
     divUser.append(inputUser);
@@ -37,7 +37,7 @@ const LogIn = (updated) => {
 
     parent.append(form);
     parent.append(divBtn);
-    
+
     btn.on("click", (e) => {
         e.preventDefault();
         state.userName = inputUser.val();
@@ -51,9 +51,8 @@ const LogIn = (updated) => {
             parent.append(error);
         }
     });
-    
-    
-    
+
+
     return parent
 }
 function LocalSede (local) {

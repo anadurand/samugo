@@ -84,29 +84,29 @@ const Admin = (update) =>{
   let Tausentes = 0, Tpuntuales = 0 ,Ttarde = 0;
   const container = $('<section class="container"></section>');
 
-  const titulo  =$('<div class="titulo"><h3>Central de emergencias</h3></div>')
-  container.append(titulo);
-  //Mapa
-  const mapContainer =$('<div class="map-container"></div>');
-  const mapa = $('<div id="map"></div>');
+    //Mapa
+    const mapContainer =$('<div class="map-container"></div>');
+    const mapa = $('<div id="map"></div>');
 
-  const reportSamu = $('<div class="samu-container"></div>');
-  const container_OK =$('<section class="container center-align"></section>');
-  const cont_asisOK =$('<div class="row"></div>') ;
-  const cont_title =$(`<div class="title_asis left-align"><p> Revisa la Asistencia de Hoy : ${harold(state.dia.getDate()) + "/" + harold((state.dia.getMonth() +1)) + "/" + harold(state.dia.getFullYear())}</p> </div>`) ;
-  const divTotales =$('<div class="flex_center m12"><h4>Registro Total</h4></div>');
-  const totalPuntual=$('<div class="sizedetail"><p class="Puntual">Puntual</p><p></p></div>');
-  const TPuntual=$('<p></p>');
-  const totalTarde=$('<div class="sizedetail"><p class="Tarde">Tarde</p><p></p></div>');
-  const TTarde=$('<p></p>');
-  const totalAusente=$('<div class="sizedetail"><p class="Ausente">Ausente</p><p></p></div>');
-  const TAusente=$('<p></p>');
-  divTotales.append(totalPuntual,totalTarde,totalAusente);
-  totalPuntual.append(TPuntual);
-  totalTarde.append(TTarde);
-  totalAusente.append(TAusente);
-  const detalle_samus = $(`<div id="samus"></div>`)
-  container_OK.append(cont_asisOK,cont_title,divTotales,detalle_samus);
+
+    mapContainer.append(mapa);
+    container.append(mapContainer);
+
+
+
+
+
+    return container;
+  };
+
+  function initMapa() {
+
+    const map = new GMaps({
+      div: '#map',
+      lat: -12.043333,
+      lng: -77.028333,
+      setZoom: 12
+    });
 
   const samuToday = [], sedes = [];
 
@@ -126,7 +126,6 @@ const Admin = (update) =>{
       }
     });
 
-<<<<<<< HEAD
     let ausentes = 0, puntuales = 0, tarde = 0;
 
     $.each(sedes,(i,e)=>{
@@ -150,10 +149,6 @@ const Admin = (update) =>{
             Ttarde++;
             break;
           }
-=======
-    mapContainer.append(mapa);
-    container.append(mapContainer);
->>>>>>> da1ebace67df90d08a1a849504b9ac46f1510434
 
           detalle(samu, divBody);
         }
@@ -264,13 +259,6 @@ const AsistenciaOk = (updated) => {
 }
 'user strict';
 
-<<<<<<< HEAD
-const TardanzaAusente = (update) => {
-
-    const container = $('<div class="container"></div>');
-
-    return container;
-=======
 const Ausente = (updated) => {
 
     const body_modal = $('<div class="container"></div>');
@@ -297,7 +285,6 @@ const Ausente = (updated) => {
     });
 
     return body_modal;
->>>>>>> da1ebace67df90d08a1a849504b9ac46f1510434
 };
 'use strict';
 
@@ -336,7 +323,7 @@ const Camara = (updateD) => {
     ok.on('click', function (e) {
         e.preventDefault();
         const validacion = validarFoto();
-        console.log(validacion + "  validiiiii");
+        
         if (validacion == true) {
             state.pagina = 3;
             updated();
@@ -345,7 +332,7 @@ const Camara = (updateD) => {
             state.userName = "";
             state.userPass = "";
             state.selectedSede = "";
-            
+
             state.pagina = 1;
             setTimeout(updated, 3000);
         }
@@ -402,9 +389,9 @@ const LogIn = (updated) => {
     state.total.locales.forEach((local) => {
         const option = $('<option value="'+local.name+'">'+local.name+'</option>');
         select.append(option);
-        
+
     });
-    
+
     divSede.append(select);
     divSede.append(labelSede);
     divUser.append(inputUser);
@@ -419,7 +406,7 @@ const LogIn = (updated) => {
 
     parent.append(form);
     parent.append(divBtn);
-    
+
     btn.on("click", (e) => {
         e.preventDefault();
         state.userName = inputUser.val();
@@ -433,9 +420,8 @@ const LogIn = (updated) => {
             parent.append(error);
         }
     });
-    
-    
-    
+
+
     return parent
 }
 function LocalSede (local) {
@@ -447,6 +433,7 @@ function LocalSede (local) {
     });
     return c;
 }
+
 'use strict';
 
 var Horas, Fechas;
@@ -522,8 +509,43 @@ const Getregister = () => {
     $.get("https://sheetsu.com/apis/v1.0/5a03e72dda6e", (data) => {
         console.log(data);
         state.asistencia = data;
+        const coderToday = [], sedes = [];
+
+        $.each(state.asistencia, (i, e) => {
+            if (e.Dia === harold(state.Dia.getDate()) + "/" + harold((state.Dia.getMonth() + 1)) + "/" + harold(state.Dia.getFullYear())) {
+                basesToday.push(e);
+            }
+        });
+        $.each(baseToday, (i, e) => {
+
+            if ($.inArray(e.Sede, sedes) === -1) {
+                sedes.push(e.Sede);
+            }
+        });
+
+        $.each(sedes, (i, e) => {
+            baseToday.forEach(function (base) {
+                if (e == base.Sede) {
+                    switch (base.Asistencia) {
+                        case 'Ausente': ausentes++;
+                            Tausentes++;
+                            break;
+                        case 'Puntual': puntuales++;
+                            Tpuntuales++;
+                            break;
+                        case 'Tarde': tarde++;
+                            Ttarde++;
+                            break;
+                    }
+
+                    // detalle(coder, divBody);
+                }
+
+            });
+           
+        });
     });
-};
+}
 'use strict';
 
 function initCamera () {
@@ -702,10 +724,6 @@ const validarUser = () => {
              state.pagina = 2;
              state.selectedUser = usuario;
 
-<<<<<<< HEAD
-             console.log(state.userName);
-=======
->>>>>>> da1ebace67df90d08a1a849504b9ac46f1510434
              if(state.userName == "Administrador"){
                  state.pagina = 7;
              }
