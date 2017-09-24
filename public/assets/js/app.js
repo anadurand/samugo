@@ -130,6 +130,34 @@ const Admin = (update) =>{
 
 
   };
+'user strict';
+
+const AsistenciaOk = (updated) => {
+    const parent = $('<div class=""></div>');
+    const msj = $('<div class=""><h5>' + state.userName +' gracias por registrarte</h5></div>');
+    const dia = $('<div>Dìa : '+ state.selectedUser.Dia +'</div>');
+    const hora = $('<div>Hora: ' + state.selectedUser.Hora + '</div>');
+    const estado = $('<div>Asistencia: '+ state.selectedUser.estado + '</div>');
+    
+    
+    msj.append(dia);
+    msj.append(hora);
+    msj.append(estado);
+
+    if(state.selectedUser.motivo != ""){
+        const motivo = $('<div>Motivo: ' + state.selectedUser.motivo + '</div>');
+        msj.append(motivo);
+    }
+
+    parent.append(msj);
+
+    setTimeout(function () {
+        state.pagina = 1;
+        updated();
+    }, 3000);
+
+    return parent;
+}
 'use strict';
 
 const Camara = (updateD) => {
@@ -284,7 +312,7 @@ var Horas, Fechas;
 const Time = (updated) => {
 
     const parent = $('<div class=""></div>');
-    const divMsj = $('<div class="msjInicial">Ahora registra tu hora de entrada</div>');
+    const divMsj = $('<div class="msjInicial">'+ state.userName  +', ahora registra tu hora de entrada</div>');
     const cont_reloj = $('<section class="container cont_timer"></section>');
 
     const cont_timer = $('<div class="cont_clock"></div>');
@@ -397,9 +425,10 @@ function harold(standIn) {
 }
 var UbicacionX, checkP, fechaP;
 
-const ValidPuntualidad = (update) => {
-    var punt1 = "0000";
-    var punt2 = "0930";
+const ValidPuntualidad = (updated) => {
+    BuscarHora();
+    var punt1 = state.turno.horaP1;
+    var punt2 = state.turno.horaP2;
     var actual = new Date();
     var hours = actual.getHours();
     var minutes = actual.getMinutes();
@@ -411,24 +440,34 @@ const ValidPuntualidad = (update) => {
     checkP = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
     fechaP = harold(dia) + "/" + harold(mes) + "/" + year;
     state.time = checkP;
-    if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
-        if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
-            state.userEstado = "Tarde";
-            state.page = 3;
-            VerificarUbi(updated);
+
+        if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
+            if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
+                state.selectedUser.estado = "Tarde";
+                state.pagina = 4;
+                VerificarUbi(updated);
+            } else {
+                state.selectedUser.estado = "Puntual";
+                state.selectedUser.motivo = "";
+                state.pagina = 4;
+                VerificarUbi(updated);
+            }
         } else {
-            state.userEstado = "Puntual";
-            state.userMotivo = "";
-            state.page = 2;
+            state.selectedUser.estado = "Tarde";
+            state.pagina = 4;
             VerificarUbi(updated);
         }
-    } else {
-        state.userEstado = "Tarde";
-        state.page = 3;
-        VerificarUbi(updated);
-    }
+
+    
 }
 
+const BuscarHora = () => {
+    state.total.turno.forEach((turn)=> {
+        if(turn.horario == state.selectedUser.turno){
+            state.turno = turn;
+        }
+    });
+}
 
 function initMap(update) {
     var pos;
@@ -440,7 +479,7 @@ function initMap(update) {
             };
 
             console.log(pos);
-            var posX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
+            var posX = Math.sqrt(Math.pow(pos.lat, 2) + Math.pow(pos.lng, 2));
 
             var labX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
             var distancia = (Math.abs(labX - posX)) * 1000;
@@ -451,18 +490,18 @@ function initMap(update) {
                 $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
                 setTimeout(function () {
                     state.pagina = 1;
-                    update();
+                    updated();
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
-                if (state.userEstado != "Tarde") {
-                    state.userHora = checkP;
-                    state.userDia = fechaP;
+                if (state.selectedUser.estado != "Tarde") {
+                    state.selectedUser.Hora = checkP;
+                    state.selectedUser.Dia = fechaP;
                     Postregister();
                 }
-                state.userHora = checkP;
-                state.userDia = fechaP;
-                update();
+                state.selectedUser.Hora = checkP;
+                state.selectedUser.Dia = fechaP;
+                updated();
             }
 
         });
@@ -471,7 +510,7 @@ function initMap(update) {
         $('#msjError').text("Tu navegador no soporta la geolocalización");
         setTimeout(function () {
             state.pagina = 1;
-            update();
+            updated();
         }, 3000);
     }
 }
@@ -504,6 +543,7 @@ const validarUser = () => {
              result = true;
              state.userName=  usuario.nombre;
              state.pagina = 2;
+             state.selectedUser = usuario;
 
              if(state.userName == "ADM-001"){
                  state.pagina = 7;

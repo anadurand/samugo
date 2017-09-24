@@ -7,6 +7,7 @@ const validarUser = () => {
              result = true;
              state.userName=  usuario.nombre;
              state.pagina = 2;
+             state.selectedUser = usuario;
 
              if(state.userName == "ADM-001"){
                  state.pagina = 7;

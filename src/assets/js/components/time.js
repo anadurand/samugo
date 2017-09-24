@@ -5,7 +5,7 @@ var Horas, Fechas;
 const Time = (updated) => {
 
     const parent = $('<div class=""></div>');
-    const divMsj = $('<div class="msjInicial">Ahora registra tu hora de entrada</div>');
+    const divMsj = $('<div class="msjInicial">'+ state.userName  +', ahora registra tu hora de entrada</div>');
     const cont_reloj = $('<section class="container cont_timer"></section>');
 
     const cont_timer = $('<div class="cont_clock"></div>');
