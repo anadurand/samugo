@@ -120,73 +120,73 @@
             "name": "Base N° 02",
             "direccion": ""
     },{
-           "latitud": 1,
-           "longitud": 1,
+           "latitud": -12.1009152,
+           "longitud": -77.0354293,
            "name": "Base N° 03",
            "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
-          "name": "Base N° 04  ",
+          "latitud":-12.095871,
+          "longitud":-77.0266898,
+          "name": "Base N° 04",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
-          "name": "Base N° 05 ",
+          "latitud":-12.084121,
+          "longitud":-77.0356757,
+          "name": "Base N° 05",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
-          "name": "Base N° 06 ",
+          "latitud":-12.0722132,
+          "longitud":-77.0739275 ,
+          "name": "Base N° 06",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud": 1,
-          "name": "Base N° 07 ",
+          "latitud":-12.0712758,
+          "longitud": -77.1114906,
+          "name": "Base N° 07",
           "direccion": ""
     },{
-          "latitud": 1,
-          "longitud":1 ,
-          "name": "Base N° 08 ",
+          "latitud": -12.0157526,
+          "longitud":-77.1330142,
+          "name": "Base N° 08",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud": 1,
-          "name": "Base N° 09 ",
+          "latitud":-12.0157526,
+          "longitud": -77.1330142,
+          "name": "Base N° 09",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-11.976629,
+          "longitud":-76.9908786 ,
           "name": "Base N° 10 ",
           "direccion": ""
     },{
-          "latitud": 1,
-          "longitud": 1,
+          "latitud": -12.0345568,
+          "longitud": -76.9368052,
           "name": "Base N° 11",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-12.1241943,
+          "longitud":-76.9436717,
           "name": "Base N° 12",
           "direccion": ""
     },{
-           "latitud":1 ,
-           "longitud":1 ,
+           "latitud":-12.1851105,
+           "longitud":-76.9270205,
            "name": "Base N° 13",
            "direccion": ""
     },{
-          "latitud": 1,
-          "longitud":1 ,
-          "name": "Base N° 14  ",
+          "latitud": -12.2116206,
+          "longitud":-76.9033313,
+          "name": "Base N° 14",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-12.2054265,
+          "longitud":-76.9509776,
           "name": "Base N° 15 ",
           "direccion": ""
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-11.9683592,
+          "longitud":-77.0246652 ,
           "name": "Base N° 16 ",
           "direccion": ""
     },{

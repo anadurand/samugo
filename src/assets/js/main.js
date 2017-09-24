@@ -60,9 +60,9 @@ $(_ => {
    var database = firebase.database();
 
     database.ref().on("value", function(snap){
-    console.log("holi");
-    state.samugo = snap.val();
-    console.log(state.samugo);
+
+    state.total = snap.val();
+    console.log(state.total);
 
     const root = $(".root");
     render(root);
