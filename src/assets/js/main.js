@@ -40,18 +40,20 @@ const render = (root) => {
     if(state.pagina == 2){
         initCamera();
     }
+    if(state.pagina == 7) {
+        initMapa();
+    }
 }
 
 const updated = function () {
     render(root);
 }
 const state = {
-    pagina: null,
+    pagina: null
 }
 
 
 $(_ => {
-
   var config = {
     apiKey: "AIzaSyBdR77WTmQPJ4ByaPCsNRxJiKSxpPxYmfU",
     authDomain: "samugo-ffbbd.firebaseapp.com",
@@ -72,5 +74,6 @@ $(_ => {
     
     const root = $(".root");
     render(root);
+
   });
 });

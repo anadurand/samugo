@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "nombre": "SAMU1",
+    "tipo": "TIPO 1",
+    "estado": "AV. San Luis 824",
+    "telefono": "2342643",
+    "latitud": "-12.074434",
+    "longitud": "-77.001535",
+    "deducibles": [
+      {
+        "id": "DED001",
+        "descripcion": "Siniestros atendidos en Talleres MOVILPLAN, 15% del monto indemnizable, mínimo de US$ 150"
+      },
+      {
+        "id": "DED002",
+        "descripcion": "Siniestros atendidos en Talleres AFILIADOS, 30% del monto indemnizable, mínimo de US$ 300"
+      },
+      {
+        "id": "DED004",
+        "descripcion": "Siniestros atendidos en talleres no incluidos en listado de talleres Moviplan, 20% del monto indemnizable"
+      }
+    ],
+    "servicios": [
+      {
+        "id": "SERV001",
+        "descripcion": "PLANCHADO",
+        "urlImagen": "https://rasveussat01.blob.core.windows.net/imagenes/serviciosTaller/planchado.png"
+      },
+      {
+        "id": "SERV003",
+        "descripcion": "ARMADO",
+        "urlImagen": "https://rasveussat01.blob.core.windows.net/imagenes/serviciosTaller/armado.png"
+      }
+    ],
+    "distrito": "San Luis"
+  }
+]
