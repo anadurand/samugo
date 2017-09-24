@@ -20,7 +20,6 @@ const LogIn = (updated) => {
     state.total.locales.forEach((local) => {
         const option = $('<option value="'+local.name+'">'+local.name+'</option>');
         select.append(option);
-
         
     });
     
@@ -44,8 +43,8 @@ const LogIn = (updated) => {
         state.userName = inputUser.val();
         state.userPass = inputPass.val();
         state.userSede = select.val();
-        console.log(state);
         if (validarUser()){
+            state.selectedSede = LocalSede(state.userSede);
             updated();
 
         }else {
@@ -56,4 +55,13 @@ const LogIn = (updated) => {
     
     
     return parent
+}
+function LocalSede (local) {
+    var c = "";
+    state.total.locales.forEach((sede) => {
+        if(sede.name == local){
+            c = sede;
+        }
+    });
+    return c;
 }
