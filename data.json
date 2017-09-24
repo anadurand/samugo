@@ -7,7 +7,8 @@
               "sede":"Base N° 01",
               "foto":"MRT-B01.jpg",
               "turno":"diurno",
-              "cargo":"Piloto"
+              "cargo":"Piloto",
+              "personId": "6399d59c-26b2-463c-991a-5708a9ec968f",
             },{
               "nombre": "Ana",
               "apellidos":"Durant Marines",
@@ -16,7 +17,8 @@
               "sede":"Base N° 01",
               "foto":"ADM-B01.jpg",
               "turno":"diurno",
-              "cargo":"Médico"
+              "cargo":"Médico",
+               "personId": "cf01234f-d489-40f8-9fed-a71bfd90b9e3"
             },{
               "nombre": "Jose",
               "apellidos":"Rosas Aguilar",
@@ -61,7 +63,8 @@
               "sede":"Base N° 03",
               "foto":"VLD-B03.jpg",
               "turno":"diurno",
-              "cargo":"Piloto"
+              "cargo":"Piloto",
+              "personId": "f33efe2e-6ad4-410d-aec7-98ae7da615fe"
             },{
               "nombre": "Carlos",
               "apellidos":"Huarcaya Vivan",
@@ -276,30 +279,5 @@
             "horario":"nocturno",
             "horaP1": "1800",
             "horaP2":"1900"
-        }],
-   "fotos":[{
-   "personId": "6399d59c-26b2-463c-991a-5708a9ec968f",
-   "persistedFaceIds": [
-     "36975a2d-10d5-4c05-830d-a4ac8aaccf9c"
-   ],
-   "name": "Maia",
-   "codigo":"MRT-B01"
-   "userData": null
- },
- {
-   "personId": "cf01234f-d489-40f8-9fed-a71bfd90b9e3",
-   "persistedFaceIds": [
-     "36f32aff-bd8c-477f-a8e6-393f6679e2e1"
-   ],
-   "name": "Ana",
-   "userData": null
- },
- {
-   "personId": "f33efe2e-6ad4-410d-aec7-98ae7da615fe",
-   "persistedFaceIds": [
-     "ec102ccc-a8f3-43d4-85a7-90a2094f4f25"
-   ],
-   "name": "Glise",
-   "userData": null
- }]
+        }]
 }

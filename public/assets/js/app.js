@@ -158,6 +158,14 @@ const AsistenciaOk = (updated) => {
 
     return parent;
 }
+'user strict';
+
+const TardanzaAusente = (update) => {
+
+    const container = $('<div class="container"></div>');
+
+    return container;
+};
 'use strict';
 
 const Camara = (updateD) => {
