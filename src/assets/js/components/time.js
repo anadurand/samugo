@@ -33,7 +33,7 @@ const Time = (updated) => {
         e.preventDefault();
 
         clearInterval(interval);
-        ValidPuntualidad(update);
+        ValidPuntualidad(updated);
     });
 
     enlace.on('click', (e) => {
@@ -45,7 +45,7 @@ const Time = (updated) => {
             // state.user.Dia = Fechas;
             state.userHora = Horas;
             state.page = 5;
-            update();
+            updated();
         }
     });
 

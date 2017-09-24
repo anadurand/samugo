@@ -132,7 +132,7 @@ const Admin = (update) =>{
   };
 'use strict';
 
-const Camara = (update) => {
+const Camara = (updateD) => {
 
     const photoContainer = $('<section class="photo-container"></section>');
 
@@ -170,7 +170,7 @@ const Camara = (update) => {
         console.log(validacion + "  validiiiii");
         if (validacion == true) {
             state.pagina = 3;
-            update();
+            updated();
         }else {
             photoContainer.append(error);
             state.userName = "";
@@ -312,7 +312,7 @@ const Time = (updated) => {
         e.preventDefault();
 
         clearInterval(interval);
-        ValidPuntualidad(update);
+        ValidPuntualidad(updated);
     });
 
     enlace.on('click', (e) => {
@@ -324,7 +324,7 @@ const Time = (updated) => {
             // state.user.Dia = Fechas;
             state.userHora = Horas;
             state.page = 5;
-            update();
+            updated();
         }
     });
 
@@ -345,6 +345,7 @@ function clock () {
     $('.day').text(harold(dia) + "/" + harold(mes) + "/" + year);
     $('.clock').text(harold(hours) + ":" + harold(minutes) + ":" + harold(seconds));
 }
+
 'use strict';
 
 function initCamera () {
@@ -383,8 +384,8 @@ function initCamera () {
 }
 'use strict';
 
-const VerificarUbi = (update) => {
-    initMap(update);
+const VerificarUbi = (updated) => {
+    initMap(updated);
 }
 
 
@@ -414,17 +415,17 @@ const ValidPuntualidad = (update) => {
         if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
             state.userEstado = "Tarde";
             state.page = 3;
-            VerificarUbi(update);
+            VerificarUbi(updated);
         } else {
             state.userEstado = "Puntual";
             state.userMotivo = "";
             state.page = 2;
-            VerificarUbi(update);
+            VerificarUbi(updated);
         }
     } else {
         state.userEstado = "Tarde";
         state.page = 3;
-        VerificarUbi(update);
+        VerificarUbi(updated);
     }
 }
 
@@ -440,7 +441,7 @@ function initMap(update) {
 
             console.log(pos);
             var posX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
-           
+
             var labX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
             var distancia = (Math.abs(labX - posX)) * 1000;
             var RadioWork = 0.002429195 * 1000;
@@ -493,6 +494,7 @@ const PedirHora = () => {
     var Fechas = harold(dia) + "/" + harold(mes) + "/" + year;
     return Fechas;
 }
+
 'use strict';
 
 const validarUser = () => {

@@ -1,7 +1,7 @@
 'use strict';
 
-const VerificarUbi = (update) => {
-    initMap(update);
+const VerificarUbi = (updated) => {
+    initMap(updated);
 }
 
 
@@ -31,17 +31,17 @@ const ValidPuntualidad = (update) => {
         if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
             state.userEstado = "Tarde";
             state.page = 3;
-            VerificarUbi(update);
+            VerificarUbi(updated);
         } else {
             state.userEstado = "Puntual";
             state.userMotivo = "";
             state.page = 2;
-            VerificarUbi(update);
+            VerificarUbi(updated);
         }
     } else {
         state.userEstado = "Tarde";
         state.page = 3;
-        VerificarUbi(update);
+        VerificarUbi(updated);
     }
 }
 
@@ -57,7 +57,7 @@ function initMap(update) {
 
             console.log(pos);
             var posX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
-           
+
             var labX = Math.sqrt(Math.pow(state.selectedSede.latitud, 2) + Math.pow(state.selectedSede.longitud, 2));
             var distancia = (Math.abs(labX - posX)) * 1000;
             var RadioWork = 0.002429195 * 1000;

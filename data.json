@@ -267,5 +267,14 @@
           "longitud":-76.9478235 ,
           "name": "Base N° 30",
           "direccion": "Gran Mercado Mayorista de, Lima 15011"
-    }]
+    }],
+    "turno":[{
+            "horario":"diurno",
+            "horaP1": "0600",
+            "horaP2":"0700"
+      },{
+            "horario":"nocturno",
+            "horaP1": "1800",
+            "horaP2":"1900"
+        }]
 }

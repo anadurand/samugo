@@ -1,6 +1,6 @@
 'use strict';
 
-const Camara = (update) => {
+const Camara = (updateD) => {
 
     const photoContainer = $('<section class="photo-container"></section>');
 
@@ -38,7 +38,7 @@ const Camara = (update) => {
         console.log(validacion + "  validiiiii");
         if (validacion == true) {
             state.pagina = 3;
-            update();
+            updated();
         }else {
             photoContainer.append(error);
             state.userName = "";
