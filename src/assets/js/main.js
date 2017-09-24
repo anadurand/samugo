@@ -49,7 +49,8 @@ const updated = function () {
     render(root);
 }
 const state = {
-    pagina: null
+    pagina: 7,
+    dia: new Date()
 }
 
 
@@ -71,7 +72,7 @@ $(_ => {
 
     state.total = snap.val();
     console.log(state.total);
-    
+
     const root = $(".root");
     render(root);
 
