@@ -167,20 +167,17 @@ const LogIn = (updated) => {
     const inputPass = $('<input id="icon_prefix" type="text" class="validate">');
     const labelPass = $('<label for="icon_prefix">Contraseña</label>');
     const divSede = $('<div class="input-field col s10 offset-s1"></div>');
-    const select = $('<select><option value="" disabled selected>Selecciona tu sede</option></select>');
+    const select = $('<select class="sedes"><option value="" disabled selected>Selecciona tu sede</option></select>');
     const labelSede = $('<label>Sede: </label>');
     const divBtn = $('<div class="col s10 offset-s1 center-align ingreso"></div>');
     const btn = $('<a class="waves-effect waves-light btn-large">Ingresar</a>');
-    // const error = $();
+    const error = $('<div class="error">Usuario o Contraseña invalidos</div>');
 
     state.total.locales.forEach((local) => {
         const option = $('<option value="'+local.name+'">'+local.name+'</option>');
         select.append(option);
 
-        option.on("click", (e)=> {
-            e.preventDefault();
-            state.selectedSede = local;
-        });
+        
     });
     
     divSede.append(select);
@@ -201,13 +198,14 @@ const LogIn = (updated) => {
         e.preventDefault();
         state.userName = inputUser.val();
         state.userPass = inputPass.val();
-        
+        state.userSede = select.val();
+        console.log(state);
         if (validarUser()){
             state.pagina = 2;
             updated();
 
         }else {
-
+            parent.append(error);
         }
     });
     
@@ -293,7 +291,6 @@ function initCamera () {
     var button = document.querySelector('#button');
     var img = document.querySelector('#img');
 
-    console.log(canvas);
     canvas.style.display = 'none';
     img.style.display = 'none';
 
@@ -316,7 +313,7 @@ function initCamera () {
         var imgData = canvas.toDataURL('image/png');
         img.setAttribute('src', imgData);
         state.photoTaken = imgData;
-
+        console.log(imgData);
         img.style.display = 'block';
         video.style.display = 'none';
     });
@@ -441,4 +438,15 @@ const PedirHora = () => {
 
     var Fechas = harold(dia) + "/" + harold(mes) + "/" + year;
     return Fechas;
+}
+'use strict';
+
+const validarUser = () => {
+    var result = false;
+    state.total.personal.forEach((usuario) => {
+        if(state.userName == usuario.user && state.userPass == usuario.password && state.userSede == usuario.sede){
+             result = true;
+        }
+    });
+    return result;
 }

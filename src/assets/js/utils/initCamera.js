@@ -7,7 +7,6 @@ function initCamera () {
     var button = document.querySelector('#button');
     var img = document.querySelector('#img');
 
-    console.log(canvas);
     canvas.style.display = 'none';
     img.style.display = 'none';
 
@@ -30,7 +29,7 @@ function initCamera () {
         var imgData = canvas.toDataURL('image/png');
         img.setAttribute('src', imgData);
         state.photoTaken = imgData;
-
+        console.log(imgData);
         img.style.display = 'block';
         video.style.display = 'none';
     });
