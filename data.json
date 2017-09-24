@@ -215,7 +215,7 @@
     },{
           "latitud":-12.0859698,
           "longitud":-77.0763119,
-          "name": "Base N° 20 ",
+          "name": "Base N° 20",
           "direccion": "Av. Mariscal Antonio José de Sucre 780, Cercado de Lima 15086"
     },{
           "latitud":-12.0129623,
@@ -235,37 +235,37 @@
     },{
           "latitud": -12.0583244,
           "longitud":-76.9308595,
-          "name": "Base N° 24  ",
+          "name": "Base N° 24",
           "direccion": "El Remo La Molina N.º 96, Cercado de Lima 15026"
     },{
           "latitud": -12.1690428,
           "longitud":-76.9482874 ,
-          "name": "Base N° 25 ",
+          "name": "Base N° 25",
           "direccion": "Av. Defensores de Lima, Allende 1500, Villa María del Triunfo 035"
     },{
           "latitud": -12.1941478,
           "longitud":-76.9467865,
-          "name": "Base N° 26 ",
+          "name": "Base N° 26",
           "direccion": "Lima, Villa María del Triunfo"
     },{
           "latitud":-12.2116249,
           "longitud": -76.9413611,
-          "name": "Base N° 27 ",
+          "name": "Base N° 27",
           "direccion": "Sector 2 Grupo 15 Mz H Lt 16, Jr Miroquezada, Villa EL Salvador"
     },{
           "latitud":-12.2126631,
           "longitud":-76.9395486,
-          "name": "Base N° 28 ",
+          "name": "Base N° 28",
           "direccion": "Villa EL Salvador"
     },{
           "latitud":-11.9683526,
           "longitud": -77.0042193,
-          "name": "Base N° 29 ",
+          "name": "Base N° 29",
           "direccion": "San Juan de Lurigancho 15419"
     },{
           "latitud":-12.0369419,
           "longitud":-76.9478235 ,
-          "name": "Base N° 32 ",
+          "name": "Base N° 30",
           "direccion": "Gran Mercado Mayorista de, Lima 15011"
     }]
 }
