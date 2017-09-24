@@ -5,3 +5,17 @@ body {
     margin: 0;
     padding: 0;
 }
+.header {
+    padding-top: 20px;
+}
+.loading {
+    height: 400px;
+    margin-top: 40px;
+    padding: 0 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.ingreso {
+    margin-top: 50px;
+}

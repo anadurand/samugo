@@ -11,30 +11,33 @@ const render = (root) => {
             wrapper.append(Home(updated));
             break;
         case 1:
-            wrapper.append(Recicla(updated));
+            wrapper.append(LogIn(updated));
             break;
         case 2:
-            wrapper.append(MapaRecicla(updated));
+            wrapper.append(Camara(updated));
             break;
         case 3:
-            wrapper.append(RutaRecicla(updated));
+            wrapper.append(Time(updated));
             break;
         case 4:
-            wrapper.append(FormAcopio(updated));
+            wrapper.append(AsistenciaOk(updated));
             break;
         case 5:
-            wrapper.append(SuccesAcopio(updated));
+            wrapper.append(Ausente(updated));
             break;
         case 6:
-            wrapper.append(TipsR(updated));
+            wrapper.append(AusenteOk(updated));
             break;
         case 7:
-            wrapper.append(TipDetail(updated));
+            wrapper.append(Admin(updated));
             break;
     };
 
     root.append(wrapper);
 
+    if(state.pagina == 2){
+        initCamera();
+    }
 }
 
 const updated = function () {
@@ -46,7 +49,7 @@ const state = {
 
 
 $(_ => {
-   
     const root = $(".root");
     render(root);
+    
 });
