@@ -61,7 +61,7 @@ const Camara = (updated) => {
     const photoContainer = $('<section class="photo-container"></section>');
 
     const photoCont = $('<div class="photo-container__cont"></div>');
-    const divMsj = $('<div class="cont_text"><h4>Tómate una foto para identificarte</h4></div>')
+    const divMsj = $('<div class="cont_text"><h4>Hola: '+ state.userName +'Tómate una foto para identificarte</h4></div>')
 
     const videoHtml = $("<video id='video' width='100%'></video>");
     const imgHtml = $("<img id='img' src=''>");
@@ -89,8 +89,8 @@ const Camara = (updated) => {
 
     ok.on('click', function (e) {
         e.preventDefault();
-
-        if (validarFoto()) {
+        const validacion = validarFoto();
+        if (validacion == true) {
             state.pagina = 3;
             update();
         }else {
@@ -190,6 +190,74 @@ const LogIn = (updated) => {
 }
 'use strict';
 
+var Horas, Fechas;
+
+const Time = (updated) => {
+
+    const parent = $('<div class=""></div>');
+    const divMsj = $('<div class="msjInicial">Ahora registra tu hora de entrada</div>');
+    const cont_reloj = $('<section class="container cont_timer"></section>');
+
+    const cont_timer = $('<div class="cont_clock"></div>');
+    const cont_day = $('<div class="day"></div>');
+    const cont_clock = $('<h1 class="clock"></h1>');
+    const btn_present = $('<button type="button"  class="verde" id="btn_present" name="button" class="verde">Registrar</button>');
+    const msjError = $('<p id="msjError"></p>');
+    const div_register = $('<div class="enlace"></div>');
+    const enlace = $('<a href="#" class="active">Registrar ausencia</a>');
+
+    cont_timer.append(cont_day);
+    cont_timer.append(cont_clock);
+    cont_timer.append(btn_present, msjError);
+    div_register.append(enlace);
+    cont_timer.append(div_register);
+    cont_reloj.append(cont_timer);
+
+    parent.append(divMsj);
+    parent.append(cont_reloj);
+
+    var interval = setInterval(clock, 1000);
+
+
+    btn_present.on('click', (e) => {
+        e.preventDefault();
+
+        clearInterval(interval);
+        ValidPuntualidad(update);
+    });
+
+    enlace.on('click', (e) => {
+        e.preventDefault();
+        console.log(Fechas);
+        if (Fechas != undefined && Horas != undefined) {
+            clearInterval(interval);
+            state.user.Estado = "Ausente";
+            // state.user.Dia = Fechas;
+            state.userHora = Horas;
+            state.page = 5;
+            update();
+        }
+    });
+
+    return parent
+}
+
+function clock () {
+    var time = new Date(),
+        hours = time.getHours(),
+        minutes = time.getMinutes(),
+        seconds = time.getSeconds(),
+        dia = time.getDate(),
+        mes = time.getMonth() + 1,
+        year = time.getFullYear();
+
+    Horas = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+    Fechas = harold(dia) + "/" + harold(mes) + "/" + year;
+    $('.day').text(harold(dia) + "/" + harold(mes) + "/" + year);
+    $('.clock').text(harold(hours) + ":" + harold(minutes) + ":" + harold(seconds));
+}
+'use strict';
+
 function initCamera () {
 
     var video = document.querySelector('#video');
@@ -224,4 +292,125 @@ function initCamera () {
         img.style.display = 'block';
         video.style.display = 'none';
     });
+}
+'use strict';
+
+const VerificarUbi = (update) => {
+    initMap(update);
+}
+
+
+function harold(standIn) {
+    if (standIn < 10) {
+        standIn = '0' + standIn
+    }
+    return standIn;
+}
+var UbicacionX, checkP, fechaP;
+
+const ValidPuntualidad = (update) => {
+    var punt1 = "0000";
+    var punt2 = "0930";
+    var actual = new Date();
+    var hours = actual.getHours();
+    var minutes = actual.getMinutes();
+    var seconds = actual.getSeconds();
+    var dia = actual.getDate();
+    var mes = actual.getMonth() + 1;
+    var year = actual.getFullYear();
+
+    checkP = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+    fechaP = harold(dia) + "/" + harold(mes) + "/" + year;
+    state.time = checkP;
+    if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
+        if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
+            state.userEstado = "Tarde";
+            state.page = 3;
+            VerificarUbi(update);
+        } else {
+            state.userEstado = "Puntual";
+            state.userMotivo = "";
+            state.page = 2;
+            VerificarUbi(update);
+        }
+    } else {
+        state.userEstado = "Tarde";
+        state.page = 3;
+        VerificarUbi(update);
+    }
+}
+
+
+function initMap(update) {
+    var pos;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            console.log(pos);
+            var posX = Math.sqrt(Math.pow(pos.lat, 2) + Math.pow(pos.lng, 2));
+            var posLab = {
+                lat: -12.126025,
+                lng: -77.020663
+            }
+            //  var posLab={
+            //   lat: -12.0507126,
+            //   lng: -77.045422
+            // }
+
+
+            var labX = Math.sqrt(Math.pow(posLab.lat, 2) + Math.pow(posLab.lng, 2));
+            var distancia = (Math.abs(labX - posX)) * 1000;
+            var RadioWork = 0.002429195 * 1000;
+
+            if (distancia >= RadioWork) {
+                console.log("Aun no estas en laboratoria");
+                $('#msjError').text("Aún no estas en Laboratoria , vuelve a registrarte cuando llegues");
+                setTimeout(function () {
+                    state.page = 1;
+                    update();
+                }, 3000);
+            } else {
+                console.log("Estas cerca de tu ubicacion");
+                if (state.userEstado != "Tarde") {
+                    state.userHora = checkP;
+                    state.userDia = fechaP;
+                    Postregister();
+                }
+                state.userHora = checkP;
+                state.userDia = fechaP;
+                update();
+            }
+
+        });
+
+    } else {
+        $('#msjError').text("Tu navegador no soporta la geolocalización");
+        setTimeout(function () {
+            state.page = null;
+            update();
+        }, 3000);
+    }
+}
+
+
+const Reingreso = () => {
+    var actual = new Date();
+    var dia = actual.getDate();
+    var mes = actual.getMonth() + 1;
+    var year = actual.getFullYear();
+    var Freingreso = harold(dia) + "/" + harold(mes) + "/" + year;
+    return Freingreso;
+}
+const PedirHora = () => {
+    var time = new Date(),
+        dia = time.getDate(),
+        mes = time.getMonth() + 1,
+        year = time.getFullYear();
+
+    var Fechas = harold(dia) + "/" + harold(mes) + "/" + year;
+    return Fechas;
 }
