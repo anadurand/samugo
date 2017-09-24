@@ -44,6 +44,7 @@ const Camara = (updateD) => {
             state.userName = "";
             state.userPass = "";
             state.selectedSede = "";
+            
             state.pagina = 1;
             setTimeout(updated, 3000);
         }

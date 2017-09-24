@@ -179,7 +179,7 @@ const Ausente = (updated) => {
         console.log("mensaje enviado");
         state.selectedUser.motivo = message.val();
         state.selectedUser.estado = "Ausente";
-        state.page = 4;
+        state.pagina = 4;
         Postregister();
         updated();
     });
@@ -232,6 +232,7 @@ const Camara = (updateD) => {
             state.userName = "";
             state.userPass = "";
             state.selectedSede = "";
+            
             state.pagina = 1;
             setTimeout(updated, 3000);
         }
@@ -378,8 +379,7 @@ const Time = (updated) => {
             clearInterval(interval);
             state.selectedUser.Hora = Horas;
             state.selectedUser.Dia = Fechas;
-            // state.userHora = Horas;
-            state.page = 5;
+            state.pagina = 5;
             updated();
         }
     });
@@ -402,6 +402,15 @@ function clock () {
     $('.clock').text(harold(hours) + ":" + harold(minutes) + ":" + harold(seconds));
 }
 
+'user strict';
+
+const Getregister = () => {
+
+    $.get("https://sheetsu.com/apis/v1.0/5a03e72dda6e", (data) => {
+        console.log(data);
+        state.asistencia = data;
+    });
+};
 'use strict';
 
 function initCamera () {
@@ -580,7 +589,7 @@ const validarUser = () => {
              state.pagina = 2;
              state.selectedUser = usuario;
 
-             if(state.userName == "ADM-001"){
+             if(state.userName == "Administrador"){
                  state.pagina = 7;
              }
         }

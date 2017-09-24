@@ -20,7 +20,7 @@ const Ausente = (updated) => {
         console.log("mensaje enviado");
         state.selectedUser.motivo = message.val();
         state.selectedUser.estado = "Ausente";
-        state.page = 4;
+        state.pagina = 4;
         Postregister();
         updated();
     });
