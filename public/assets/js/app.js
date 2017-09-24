@@ -50,7 +50,7 @@ const updated = function () {
     render(root);
 }
 const state = {
-    pagina: 7,
+    pagina: null,
     dia: new Date()
 }
 
@@ -215,8 +215,6 @@ function initMapa() {
       alert("Tu navegador no soporta la API geolocation");
     }
   });
-
-
 };
 
 function addMarkerMap(map,elem) {
@@ -651,7 +649,8 @@ const validarUser = () => {
              state.pagina = 2;
              state.selectedUser = usuario;
 
-             if(state.userName == "ADM-001"){
+             console.log(state.userName);
+             if(state.userName == "Administrador"){
                  state.pagina = 7;
              }
         }

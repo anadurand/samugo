@@ -50,7 +50,7 @@ const updated = function () {
     render(root);
 }
 const state = {
-    pagina: 7,
+    pagina: null,
     dia: new Date()
 }
 

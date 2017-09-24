@@ -133,8 +133,6 @@ function initMapa() {
       alert("Tu navegador no soporta la API geolocation");
     }
   });
-
-
 };
 
 function addMarkerMap(map,elem) {

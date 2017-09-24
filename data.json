@@ -5,17 +5,17 @@
               "user" :"MRT-B01",
               "password":"1234",
               "sede":"Base N° 01",
-              "foto":"MRT-B01.jpg",
+              "foto":"1",
               "turno":"diurno",
               "cargo":"Piloto",
-              "personId": "6399d59c-26b2-463c-991a-5708a9ec968f",
+              "personId": "6399d59c-26b2-463c-991a-5708a9ec968f"
             },{
               "nombre": "Ana",
               "apellidos":"Durant Marines",
               "user" :"ADM-B01",
               "password":"1234",
               "sede":"Base N° 01",
-              "foto":"ADM-B01.jpg",
+              "foto":"1",
               "turno":"diurno",
               "cargo":"Médico",
                "personId": "cf01234f-d489-40f8-9fed-a71bfd90b9e3"
@@ -25,7 +25,7 @@
               "user" :"JRA-B01",
               "password":"1234",
               "sede":"Base N° 01",
-              "foto":"JRA-B01.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Enfermero"
             },{
@@ -34,7 +34,7 @@
               "user" :"FVD-B02",
               "password":"1234",
               "sede":"Base N° 02",
-              "foto":"FVD-B02.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Piloto"
             },{
@@ -43,7 +43,7 @@
               "user" :"ACM-B02",
               "password":"1234",
               "sede":"Base N° 02",
-              "foto":"MRT-B02.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Médico"
             },{
@@ -52,7 +52,7 @@
               "user" :"GPD-B02",
               "password":"1234",
               "sede":"Base N° 02",
-              "foto":"GPD-B02.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Enfermero"
             },{
@@ -61,7 +61,7 @@
               "user" :"VLD-B03",
               "password":"1234",
               "sede":"Base N° 03",
-              "foto":"VLD-B03.jpg",
+              "foto":"1",
               "turno":"diurno",
               "cargo":"Piloto",
               "personId": "f33efe2e-6ad4-410d-aec7-98ae7da615fe"
@@ -71,7 +71,7 @@
               "user" :"CHV-B03",
               "password":"1234",
               "sede":"Base N° 03",
-              "foto":"CHV-B03.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Médico"
             },{
@@ -80,7 +80,7 @@
               "user" :"CFT-B03",
               "password":"1234",
               "sede":"Base N° 03",
-              "foto":"CFT-B03.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Enfermero"
             },{
@@ -89,7 +89,7 @@
               "user" :"DAP-B04",
               "password":"1234",
               "sede":"Base N° 04",
-              "foto":"DAP-B04.jpg",
+                "foto":"2",
               "turno":"diurno",
               "cargo":"Piloto"
             },{
@@ -98,7 +98,7 @@
               "user" :"AGC-B04",
               "password":"1234",
               "sede":"Base N° 04",
-              "foto":"AGC-B01.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Médico"
             },{
@@ -107,16 +107,16 @@
               "user" :"MPC-B04",
               "password":"1234",
               "sede":"Base N° 04",
-              "foto":"MPC-B04.jpg",
+              "foto":"2",
               "turno":"diurno",
               "cargo":"Enfermero"
             },{
-              "nombre": "Admistrador",
+              "nombre": "Administrador",
               "apellidos":"",
               "user" :"ADM-001",
               "password":"1234",
               "sede":"Central Samu",
-              "foto":"ADM-001.jpg",
+              "foto":"6",
               "turno":"",
               "cargo":"Administrador"
             }],
