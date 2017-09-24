@@ -5,7 +5,7 @@ const Camara = (updated) => {
     const photoContainer = $('<section class="photo-container"></section>');
 
     const photoCont = $('<div class="photo-container__cont"></div>');
-    const divMsj = $('<div class="cont_text"><h4>Hola: '+ state.userName +'Tómate una foto para identificarte</h4></div>')
+    const divMsj = $('<div class="cont_text center-align"><h5>Hola: '+ state.userName +'Tómate una foto para identificarte</h5></div>')
 
     const videoHtml = $("<video id='video' width='100%'></video>");
     const imgHtml = $("<img id='img' src=''>");

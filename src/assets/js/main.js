@@ -34,6 +34,9 @@ const render = (root) => {
 
     root.append(wrapper);
 
+    if(state.pagina == 1){
+        $('select').material_select();
+    }
     if(state.pagina == 2){
         initCamera();
     }
@@ -66,7 +69,7 @@ $(_ => {
 
     state.total = snap.val();
     console.log(state.total);
-
+    
     const root = $(".root");
     render(root);
   });

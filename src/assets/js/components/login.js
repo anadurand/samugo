@@ -15,17 +15,17 @@ const LogIn = (updated) => {
     const labelSede = $('<label>Sede: </label>');
     const divBtn = $('<div class="col s10 offset-s1 center-align ingreso"></div>');
     const btn = $('<a class="waves-effect waves-light btn-large">Ingresar</a>');
+    // const error = $();
 
-    // state.locales.forEach((local) => {
-    //     const option = $('<option value="'+local.name+'">'+local.name+'</option>');
-    //     select.append(option);
+    state.total.locales.forEach((local) => {
+        const option = $('<option value="'+local.name+'">'+local.name+'</option>');
+        select.append(option);
 
-    //     option.on("click", (e)=> {
-    //         e.preventDefault();
-    //         state.selectedSede = local;
-    //     });
-
-    // });
+        option.on("click", (e)=> {
+            e.preventDefault();
+            state.selectedSede = local;
+        });
+    });
     
     divSede.append(select);
     divSede.append(labelSede);
@@ -40,16 +40,22 @@ const LogIn = (updated) => {
     
     parent.append(form);
     parent.append(divBtn);
-
+    
     btn.on("click", (e) => {
         e.preventDefault();
-        state.pagina = 2;
         state.userName = inputUser.val();
         state.userPass = inputPass.val();
-        updated();
+        
+        if (validarUser()){
+            state.pagina = 2;
+            updated();
+
+        }else {
+
+        }
     });
-
-
-
+    
+    
+    
     return parent
 }
