@@ -381,8 +381,8 @@ function initCamera () {
 }
 'use strict';
 
-const VerificarUbi = (update) => {
-    initMap(update);
+const VerificarUbi = (updated) => {
+    initMap(updated);
 }
 
 
@@ -394,9 +394,10 @@ function harold(standIn) {
 }
 var UbicacionX, checkP, fechaP;
 
-const ValidPuntualidad = (update) => {
-    var punt1 = "0000";
-    var punt2 = "0930";
+const ValidPuntualidad = (updated) => {
+    BuscarHora();
+    var punt1 = state.turno.horaP1;
+    var punt2 = state.turno.horaP2;
     var actual = new Date();
     var hours = actual.getHours();
     var minutes = actual.getMinutes();
@@ -408,24 +409,34 @@ const ValidPuntualidad = (update) => {
     checkP = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
     fechaP = harold(dia) + "/" + harold(mes) + "/" + year;
     state.time = checkP;
-    if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
-        if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
-            state.userEstado = "Tarde";
-            state.page = 3;
-            VerificarUbi(update);
+
+        if (parseInt(punt1.slice(0, 2)) <= hours && hours <= parseInt(punt2.slice(0, 2))) {
+            if (hours == parseInt(punt2.slice(0, 2)) && minutes > parseInt(punt2.slice(2, 4))) {
+                state.selectedUser.estado = "Tarde";
+                state.pagina = 4;
+                VerificarUbi(update);
+            } else {
+                state.selectedUser.estado = "Puntual";
+                state.selectedUser.motivo = "";
+                state.pagina = 4;
+                VerificarUbi(update);
+            }
         } else {
-            state.userEstado = "Puntual";
-            state.userMotivo = "";
-            state.page = 2;
+            state.selectedUser.estado = "Tarde";
+            state.pagina = 4;
             VerificarUbi(update);
         }
-    } else {
-        state.userEstado = "Tarde";
-        state.page = 3;
-        VerificarUbi(update);
-    }
+
+    
 }
 
+const BuscarHora = () => {
+    state.total.turno.forEach((turn)=> {
+        if(turn.horario == state.selectedUser.turno){
+            state.turno = turn;
+        }
+    });
+}
 
 function initMap(update) {
     var pos;
@@ -452,13 +463,13 @@ function initMap(update) {
                 }, 3000);
             } else {
                 console.log("Estas cerca de tu ubicacion");
-                if (state.userEstado != "Tarde") {
-                    state.userHora = checkP;
-                    state.userDia = fechaP;
+                if (state.selectedUser.estado != "Tarde") {
+                    state.selectedUser.Hora = checkP;
+                    state.selectedUser.Dia = fechaP;
                     Postregister();
                 }
-                state.userHora = checkP;
-                state.userDia = fechaP;
+                state.selectedUser.Hora = checkP;
+                state.selectedUser.Dia = fechaP;
                 update();
             }
 
@@ -499,11 +510,12 @@ const validarUser = () => {
         if(state.userName == usuario.user && state.userPass == usuario.password && state.userSede == usuario.sede){
              result = true;
              state.pagina = 2;
+             state.selectedUser = usuario;
              if(state.userName == "ADM-001"){
                  state.pagina = 7;
              }
         }
     });
-    
+
     return result;
 }
