@@ -118,160 +118,154 @@
               "cargo":"Administrador"
             }],
   "locales":[{
-            "latitud": -11.9745568,
-            "longitud": -76.7626213,
+            "latitud": -12.0601787,
+            "longitud": -77.1328701,
             "name": "Base N° 01",
-            "codigo":"Samu Chacla",
-            "direccion": ""
+            "direccion": "Bolognesi 200, Bellavista 07016"
     },{
-            "latitud": -12.0926725,
-            "longitud": -77.0369035,
+            "latitud": -12.0640206,
+            "longitud": -77.1221732,
             "name": "Base N° 02",
-            "direccion": ""
+            "direccion": "Jirón Colina 1081, Bellavista 07011"
     },{
-           "latitud": -12.1009152,
-           "longitud": -77.0354293,
+           "latitud": -12.0659612,
+           "longitud": -77.0989606,
            "name": "Base N° 03",
-           "direccion": ""
+           "direccion": "Av Parque de las Leyendas 255, Cercado de Lima LIMA 32"
     },{
-          "latitud":-12.095871,
-          "longitud":-77.0266898,
+          "latitud":-12.0783624,
+          "longitud":-77.091266,
           "name": "Base N° 04",
-          "direccion": ""
+          "direccion": "Av. La Marina 2299, San Miguel 15088"
     },{
-          "latitud":-12.084121,
-          "longitud":-77.0356757,
+          "latitud":-12.1096081,
+          "longitud":-77.0316326,
           "name": "Base N° 05",
-          "direccion": ""
+          "direccion": "Belisario Suarez 1070, Miraflores 15046"
     },{
-          "latitud":-12.0722132,
-          "longitud":-77.0739275 ,
+          "latitud":-12.0722189,
+          "longitud":-77.0445303 ,
           "name": "Base N° 06",
-          "direccion": ""
+          "direccion": "Jirón Pablo Bermudez 386, Jesús María 15072"
     },{
-          "latitud":-12.0712758,
-          "longitud": -77.1114906,
+          "latitud":-12.1133948,
+          "longitud": -77.0325054,
           "name": "Base N° 07",
-          "direccion": ""
+          "direccion": "Av. Angamos Este 261, Miraflores 15046"
     },{
-          "latitud": -12.0157526,
-          "longitud":-77.1330142,
+          "latitud": -12.0599566,
+          "longitud":-77.1134234,
           "name": "Base N° 08",
-          "direccion": ""
+          "direccion": "Bellavista 07011"
     },{
-          "latitud":-12.0157526,
-          "longitud": -77.1330142,
+          "latitud":-12.0941829,
+          "longitud": -77.0376123,
           "name": "Base N° 09",
-          "direccion": ""
+          "direccion": "Av. Arequipa 2890, San Isidro 15073"
     },{
-          "latitud":-11.976629,
-          "longitud":-76.9908786 ,
-          "name": "Base N° 10 ",
-          "direccion": ""
+          "latitud":-12.0732277,
+          "longitud":-76.9963599,
+          "name": "Base N° 10",
+          "direccion": "Av Circunvalación 2161, San Luis 15022"
     },{
-          "latitud": -12.0345568,
-          "longitud": -76.9368052,
+          "latitud": -12.0800042,
+          "longitud": -77.0419361,
           "name": "Base N° 11",
-          "direccion": ""
+          "direccion": "Jirón Mariscal Miller 1502, Lince 15073"
     },{
-          "latitud":-12.1241943,
-          "longitud":-76.9436717,
+          "latitud":-12.0725513,
+          "longitud":-77.0425852,
           "name": "Base N° 12",
-          "direccion": ""
+          "direccion": "Jirón Pablo Bermudez 250, Jesús María 15072"
     },{
-           "latitud":-12.1851105,
-           "longitud":-76.9270205,
+           "latitud":-12.0790927,
+           "longitud":-77.0448566,
            "name": "Base N° 13",
-           "direccion": ""
+           "direccion": "Av Edgardo Rebagliati 490, Jesús María 15072"
     },{
-          "latitud": -12.2116206,
-          "longitud":-76.9033313,
+          "latitud": -12.0370175,
+          "longitud":-77.0395045,
           "name": "Base N° 14",
-          "direccion": ""
+          "direccion": "Av. Francisco Pizarro 589, Cercado de Lima 15094"
     },{
-          "latitud":-12.2054265,
-          "longitud":-76.9509776,
-          "name": "Base N° 15 ",
-          "direccion": ""
+          "latitud":-11.9926853,
+          "longitud":-77.0657012,
+          "name": "Base N° 15",
+          "direccion": "Independencia 15311"
     },{
-          "latitud":-11.9683592,
-          "longitud":-77.0246652 ,
-          "name": "Base N° 16 ",
-          "direccion": ""
+          "latitud":-12.1783831,
+          "longitud":-77.0090187,
+          "name": "Base N° 16",
+          "direccion": "Los Gorriones 365, Cercado de Lima 15054"
     },{
-          "latitud":1,
-          "longitud":1 ,
-          "name": "Base N° 17 ",
-          "direccion": ""
+          "latitud":-12.0468465,
+          "longitud":-76.9525938,
+          "name": "Base N° 17",
+          "direccion": "San Isidro Labrador, Carr. Central, Santa Anita 15011"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
-          "name": "Base N° 18 ",
-          "direccion": ""
+          "latitud":-12.1507658,
+          "longitud":-76.9930605,
+          "name": "Base N° 18",
+          "direccion": "Av. Los Proceres, Cercado de Lima 15054"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
-          "name": "Base N° 19 ",
-          "direccion": ""
+          "latitud":-12.0901758,
+          "longitud":-77.0378534,
+          "name": "Base N° 19",
+          "direccion": "Av Javier Prado Oeste 355, Cercado de Lima 15073"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-12.0859698,
+          "longitud":-77.0763119,
           "name": "Base N° 20 ",
-          "direccion": ""
+          "direccion": "Av. Mariscal Antonio José de Sucre 780, Cercado de Lima 15086"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-12.0129623,
+          "longitud":-77.1013674,
           "name": "Base N° 21",
-          "direccion": ""
+          "direccion": "Calle Misionero de San Martín, Callao 07036"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-11.9949931,
+          "longitud":-77.0630621,
           "name": "Base N° 22",
-          "direccion": ""
+          "direccion": "Jr. Los Tumbos, Jirón Los Tumbos, Independencia 15333"
     },{
-           "latitud":1 ,
-           "longitud":1 ,
+           "latitud":-11.9486026,
+           "longitud":-77.0672427 ,
            "name": "Base N° 23",
-           "direccion": ""
+           "direccion": "Manuel Aranguri 699, Comas 15314"
     },{
-          "latitud": 1,
-          "longitud":1 ,
+          "latitud": -12.0583244,
+          "longitud":-76.9308595,
           "name": "Base N° 24  ",
-          "direccion": ""
+          "direccion": "El Remo La Molina N.º 96, Cercado de Lima 15026"
     },{
-          "latitud": 1,
-          "longitud":1 ,
+          "latitud": -12.1690428,
+          "longitud":-76.9482874 ,
           "name": "Base N° 25 ",
-          "direccion": ""
+          "direccion": "Av. Defensores de Lima, Allende 1500, Villa María del Triunfo 035"
     },{
-          "latitud": 1,
-          "longitud":1 ,
+          "latitud": -12.1941478,
+          "longitud":-76.9467865,
           "name": "Base N° 26 ",
-          "direccion": ""
+          "direccion": "Lima, Villa María del Triunfo"
     },{
-          "latitud":1 ,
-          "longitud": 1,
+          "latitud":-12.2116249,
+          "longitud": -76.9413611,
           "name": "Base N° 27 ",
-          "direccion": ""
+          "direccion": "Sector 2 Grupo 15 Mz H Lt 16, Jr Miroquezada, Villa EL Salvador"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-12.2126631,
+          "longitud":-76.9395486,
           "name": "Base N° 28 ",
-          "direccion": ""
+          "direccion": "Villa EL Salvador"
     },{
-          "latitud":1 ,
-          "longitud": 1,
+          "latitud":-11.9683526,
+          "longitud": -77.0042193,
           "name": "Base N° 29 ",
-          "direccion": ""
+          "direccion": "San Juan de Lurigancho 15419"
     },{
-          "latitud":1 ,
-          "longitud":1 ,
+          "latitud":-12.0369419,
+          "longitud":-76.9478235 ,
           "name": "Base N° 32 ",
-          "direccion": ""
-    },{
-          "latitud":1 ,
-          "longitud":1 ,
-          "name": "Base N° 33",
-          "direccion":""
-        }]
+          "direccion": "Gran Mercado Mayorista de, Lima 15011"
+    }]
 }
